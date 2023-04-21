@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
 
 
 function AdoptionForm() {
     const navigate = useNavigate();
+    const [email, setEmail] = useState("");
     const navigateToHome = () => {
         navigate('/home');
     }
@@ -26,10 +27,12 @@ function AdoptionForm() {
             </div>
           </div>
         </nav>
+
+
         <form class="row g-3">
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4"/>
+            <input type="email" class="form-control" id="inputEmail4" value={email}/>
           </div>
           <div class="col-md-6">
             <label for="inputPassword4" class="form-label">Password</label>
@@ -67,7 +70,7 @@ function AdoptionForm() {
             </div>
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary" onSubmit={console.log("raina")}>Sign in</button>
           </div>
         </form>
 
