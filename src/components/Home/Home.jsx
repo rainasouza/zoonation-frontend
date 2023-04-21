@@ -9,9 +9,13 @@ function Home() {
   const navigate = useNavigate();
 
   const navigateToAdoptionPage = () => {
-    navigate('/adopt');
+    navigate('/toadopt');
+  }
+  const navigateToAdoptionForm = () => {
+    navigate('/adoptions');
   }
   return (
+    
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -35,6 +39,15 @@ function Home() {
         </div>
       </nav>
 
+
+    <div class="demo-wrap">
+      <img
+        class="demo-bg"
+        src="https://wallpaperaccess.com/full/1433828.jpg"
+        alt="">
+      </img> 
+    </div>
+
       <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div class="col-10 col-sm-8 col-lg-6">
@@ -54,8 +67,10 @@ function Home() {
               </div>
             </div>
 
-            <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-primary px-4 me-md-2" href="#" role="button" onClick={navigateToAdoptionPage}>Deseja adotar?</a>
-              <a class="btn btn-outline-secondary px-4" href="#" role="button">Deseja colocar para a adoção?</a>
+            <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
+              <a class="btn btn-primary px-4 me-md-2" role="button" onClick={navigateToAdoptionPage}>Deseja adotar?</a>
+              <a class="btn btn-primary px-4 me-md-2" role="button" onClick={navigateToAdoptionForm}>Deseja por para adoção?</a>
+              
             </div>
 
           </div>
