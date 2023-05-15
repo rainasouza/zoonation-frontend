@@ -32,7 +32,7 @@ function Home() {
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="index.html">ZooNation</a>
+          <a class="navbar-brand" >ZooNation</a>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
@@ -53,7 +53,7 @@ function Home() {
     <div class="demo-wrap">
       <img
         class="demo-bg"
-        src="https://wallpaperaccess.com/full/1433828.jpg"
+        
         alt="">
       </img> 
     </div>
@@ -72,14 +72,14 @@ function Home() {
 
             <div class="lc-block mb-3">
               <div editable="rich">
-                <p class="lead">Nascemos com o objetivo de ajudar cães e gatos a encontrarem um lar para chamarem de seus! As patinhas que você observa ao visitar este site estão ansiosas para lhe conhecer.
+                <p class="fonte-texto">Nascemos com o objetivo de ajudar cães e gatos a encontrarem um lar para chamarem de seus! As patinhas que você observa ao visitar este site estão ansiosas para lhe conhecer.
                 </p>
               </div>
             </div>
 
             <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-              <a class="btn btn-primary px-4 me-md-2" role="button" onClick={navigateToAdoptionPage}>Deseja adotar?</a>
-              <a class="btn btn-primary px-4 me-md-2" role="button" onClick={navigateToAdoptionForm}>Deseja por para adoção?</a>
+              <a type="button" class="btn btn-outline-dark" onClick={navigateToAdoptionPage}>Deseja adotar?</a>
+              <a type="button" class="btn btn-outline-dark" onClick={navigateToAdoptionForm}>Deseja por para adoção?</a>
               
             </div>
 

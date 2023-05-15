@@ -12,7 +12,7 @@ function AdoptionForm() {
         
     }
     return (
-        <div>
+        <div >
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,14 +31,14 @@ function AdoptionForm() {
         </nav>
         <br></br>
 
-
+<div class="container">
         <form class="row g-3">
         <div class="col-sm-5">
-            <label for="inputName" class="form-label">Nome</label>
+            <label for="inputName" class="fonte-texto">Nome</label>
             <input type="text" class="form-control" id="inputName" placeholder="Tudo bem se ele não possuir um!"/>
           </div>
         <div class="col-sm-5">
-            <label for="inputAge" class="form-label">Idade</label>
+            <label for="inputAge" class="fonte-texto">Idade</label>
             <select id="inputAge" class="form-select">
               <option selected> 1-3 meses</option>
               <option> 3-6 meses </option>
@@ -48,11 +48,11 @@ function AdoptionForm() {
             </select>
           </div>
           <div class="col-sm-5">
-            <label for="inputRace" class="form-label">Raça</label>
+            <label for="inputRace" class="fonte-texto">Raça</label>
             <input type="text" class="form-control" id="inputRace" placeholder="Raça Não Definida, Labrador, Poodle..."/>
           </div>
           <div class="col-sm-5">
-            <label for="inputCity" class="form-label">Cidade</label>
+            <label for="inputCity" class="fonte-texto">Cidade</label>
             <select id="inputCity" class="form-select">
               <option selected>Campina Grande-PB</option>
               <option>Montadas-PB</option>
@@ -63,20 +63,20 @@ function AdoptionForm() {
             </select>
           </div>
           <div class="col-sm-10">
-            <label for="formFile" class="form-label">Foto do Animal</label>
+            <label for="formFile" class="fonte-texto">Foto do Animal</label>
             <input class="form-control" type="file" id="formFile"/>
           </div>
           <div class="col-sm-12">
-            <label for="exampleFormControlTextarea1" class="form-label">Deseja acrescentar mais informações sobre o(a) pequenino(a)? Nos deixe conhecer mais sobre personalidade dele(a)!</label>
+            <label for="exampleFormControlTextarea1" class="fonte-texto">Deseja acrescentar mais informações sobre o(a) pequenino(a)? Nos deixe conhecer mais sobre personalidade dele(a)!</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-primary" onSubmit={console.log("raina")}>Enviar</button>
+            <button type="submit" class="btn btn-outline-dark" onSubmit={console.log("raina")}>Enviar</button>
           </div>
         </form>
 
         </div>
-
+        </div>
 
         
         )

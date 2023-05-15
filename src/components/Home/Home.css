@@ -3,15 +3,22 @@
     position: relative;
   }
   
-  .demo-bg {
+.demo-bg {
     opacity: 0.6;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: auto;
-  }
+}
   
-  .demo-content {
+.demo-content {
     position: relative;
-  }
+}
+
+.fonte-texto {
+  
+  color:rgb(53, 0, 0); text-shadow: rgb(0, 0, 0) 0.200em 0.100em 0.40em
+}
+
+
