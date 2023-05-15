@@ -5,10 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 
 
-function AdoptionPage(){
+function Login(){
     return(
+      <div>
         <h1> Hello!</h1>
+      </div>
+        
     )
 }
 
-export default AdoptionPage;
+export default Login;

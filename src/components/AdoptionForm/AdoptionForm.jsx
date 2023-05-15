@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
+import './AdoptionForm.css';
 
 
 function AdoptionForm() {
@@ -8,6 +9,7 @@ function AdoptionForm() {
     const [email, setEmail] = useState("");
     const navigateToHome = () => {
         navigate('/home');
+        
     }
     return (
         <div>
@@ -20,57 +22,56 @@ function AdoptionForm() {
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" onClick={navigateToHome}>Home</a>
+                  <a class="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
                 </li>
         
               </ul>
             </div>
           </div>
         </nav>
+        <br></br>
 
 
         <form class="row g-3">
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" value={email}/>
+        <div class="col-sm-5">
+            <label for="inputName" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Tudo bem se ele não possuir um!"/>
           </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4"/>
-          </div>
-          <div class="col-12">
-            <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"/>
-          </div>
-          <div class="col-12">
-            <label for="inputAddress2" class="form-label">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
-          </div>
-          <div class="col-md-6">
-            <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity"/>
-          </div>
-          <div class="col-md-4">
-            <label for="inputState" class="form-label">State</label>
-            <select id="inputState" class="form-select">
-              <option selected>Choose...</option>
-              <option>...</option>
+        <div class="col-sm-5">
+            <label for="inputAge" class="form-label">Idade</label>
+            <select id="inputAge" class="form-select">
+              <option selected> 1-3 meses</option>
+              <option> 3-6 meses </option>
+              <option> 6-9 meses </option>
+              <option> 9-12 meses </option>
+              <option> 1+ ano </option>
             </select>
           </div>
-          <div class="col-md-2">
-            <label for="inputZip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="inputZip"/>
+          <div class="col-sm-5">
+            <label for="inputRace" class="form-label">Raça</label>
+            <input type="text" class="form-control" id="inputRace" placeholder="Raça Não Definida, Labrador, Poodle..."/>
+          </div>
+          <div class="col-sm-5">
+            <label for="inputCity" class="form-label">Cidade</label>
+            <select id="inputCity" class="form-select">
+              <option selected>Campina Grande-PB</option>
+              <option>Montadas-PB</option>
+              <option>Lagoa Seca-PB</option>
+              <option>Puxinanã-PB</option>
+              <option>Esperança-PB</option>
+              <option>Pocinhos-PB</option>
+            </select>
+          </div>
+          <div class="col-sm-10">
+            <label for="formFile" class="form-label">Foto do Animal</label>
+            <input class="form-control" type="file" id="formFile"/>
+          </div>
+          <div class="col-sm-12">
+            <label for="exampleFormControlTextarea1" class="form-label">Deseja acrescentar mais informações sobre o(a) pequenino(a)? Nos deixe conhecer mais sobre personalidade dele(a)!</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck"/>
-              <label class="form-check-label" for="gridCheck">
-                Check me out
-              </label>
-            </div>
-          </div>
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary" onSubmit={console.log("raina")}>Sign in</button>
+            <button type="submit" class="btn btn-primary" onSubmit={console.log("raina")}>Enviar</button>
           </div>
         </form>
 

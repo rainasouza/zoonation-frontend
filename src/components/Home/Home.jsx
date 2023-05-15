@@ -15,6 +15,15 @@ function Home() {
   const navigateToAdoptionForm = () => {
     navigate('/adoptions');
   }
+  const navigateToSignup = () => {
+    navigate('/signup')
+  }
+  const navigateToLogin = () => {
+    navigate('/login')
+  }
+  const navigateToHome = () => {
+    navigate('/home');
+}
   return (
     
     <div>
@@ -27,13 +36,13 @@ function Home() {
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" onClick={navigateToHome}>Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="signin.html">Cadastre-se</a>
+                <a class="nav-link" aria-current="page" onClick={navigateToSignup}>Cadastre-se</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login.html">Entrar</a>
+                <a class="nav-link" aria-current="page" onClick={navigateToLogin}>Entrar</a>
               </li>
             </ul>
           </div>
