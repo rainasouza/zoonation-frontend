@@ -1,5 +1,5 @@
 import React from "react";
-import './Home.css';
+import './Home.module.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import dogLogo from "../../images/dog_logo.jpg"
 import { useNavigate } from "react-router-dom";
@@ -72,7 +72,7 @@ function Home() {
 
             <div class="lc-block mb-3">
               <div editable="rich">
-                <p class="fonte-texto">Nascemos com o objetivo de ajudar cães e gatos a encontrarem um lar para chamarem de seus! As patinhas que você observa ao visitar este site estão ansiosas para lhe conhecer.
+                <p className="fonte-texto">Nascemos com o objetivo de ajudar cães e gatos a encontrarem um lar para chamarem de seus! As patinhas que você observa ao visitar este site estão ansiosas para lhe conhecer.
                 </p>
               </div>
             </div>

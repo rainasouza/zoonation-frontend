@@ -1,0 +1,29 @@
+form {
+    max-width: 80%;
+    margin: 0% auto;
+    text-align: center;
+    display: -moz-inline-box;
+    align-items: middle;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1px;
+}
+
+label span {
+    margin-bottom: .3em;
+    font-weight: bold;
+    
+}
+
+input {
+    box-sizing: border-box;
+    border: 1px rgb(90, 9, 36);
+    border-radius: 8px;
+    padding: auto;
+}
+
+
+

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
-import './AdoptionForm.css';
+import './AdoptionForm.module.css';
 
 
 function AdoptionForm() {
