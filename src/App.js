@@ -1,4 +1,5 @@
 import './App.css';
+import { AuthProvider } from './context/AuthContext';
 import AdoptionForm from './components/AdoptionForm/AdoptionForm';
 import AdoptionPage from './components/AdoptionPage/AdoptionPage';
 import Home from './components/Home/Home';
@@ -9,10 +10,35 @@ import{
   Routes,
   Route,
 } from "react-router-dom";
+import { onAuthStateChanged } from 'firebase/auth';
+import { useState, useEffect } from 'react';
+import { useAuthetication } from './hooks/useAuthetication';
+
 function App() {
+  const [user, setUser] = useState(undefined);
+  const {auth} = useAuthetication();
+
+  const loadingUser = user === undefined;
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    })
+  }, [auth])
+
+  if (loadingUser){
+    return <p>Carregando...</p>
+  }
+
+
+
+
+
+
+
   return (
-    <>
-    
+    <div className='App'>
+      <AuthProvider value={user}>
       <Router>
         <Routes>
           <Route path="/">
@@ -26,7 +52,11 @@ function App() {
           </Route>
         </Routes>
       </Router>
-    </>
+      </AuthProvider>
+    </div>
+      
+      
+    
   );
 }
 

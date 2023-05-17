@@ -8,12 +8,13 @@ import {
     updateProfile,
     signOut
 } from 'firebase/auth';
+
 import { useEffect, useState } from 'react';
 
 export const useAuthetication = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(null);
-
+//to deal with memory leak
     const [cancelled,setCancelled] = useState(false);
 
     const auth = getAuth();
