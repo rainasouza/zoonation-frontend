@@ -3,7 +3,9 @@ import './Home.module.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import dogLogo from "../../images/dog_logo.jpg"
 import { useNavigate } from "react-router-dom";
-
+import Signup from "../Signup/Signup";
+import { useAuthetication } from "../../hooks/useAuthetication";
+import { useAuthValue } from "../../context/AuthContext";
 
 
 function Home() {
@@ -24,6 +26,9 @@ function Home() {
   const navigateToHome = () => {
     navigate('/home');
 }
+  const { user } = useAuthValue();
+  const { logout } = useAuthetication();
+
   return (
     
     <div>
@@ -44,6 +49,11 @@ function Home() {
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" onClick={navigateToLogin}>Entrar</a>
               </li>
+              { user && (
+                <li class="nav-item">
+                    <button class="btn btn-outline-dark" onClick={logout}>Sair</button>
+                </li>
+              )}
             </ul>
           </div>
         </div>

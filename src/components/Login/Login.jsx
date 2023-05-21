@@ -14,7 +14,7 @@ function Login(){
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const {createUser, error: authError, loading} = useAuthetication(); 
+  const {login, error: authError, loading} = useAuthetication(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -25,6 +25,9 @@ function Login(){
       email,
       password
     }
+
+    const res = await login(user);
+    console.log(res)
 
 
    

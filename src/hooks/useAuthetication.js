@@ -47,6 +47,26 @@ export const useAuthetication = () => {
             setLoading(false)
         }
     }
+
+    const logout = () => {
+        checkIfIsCancelled();
+        signOut(auth);
+    }
+
+    const login = async(data) => {
+        checkIfIsCancelled();
+        setLoading(true);
+        setError(false);
+
+        try{
+            await signInWithEmailAndPassword(auth, data.email, data.password)
+        } catch (error){
+            console.log(error.message)
+            console.log(typeof error.message)
+        }
+    }
+
+
     useEffect(() => {
         return () => setCancelled(true)
     }, []);
@@ -55,6 +75,8 @@ export const useAuthetication = () => {
         auth,
         createUser,
         error,
-        loading
+        loading,
+        logout,
+        login
     }
 }
