@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className='App'>
-      <AuthProvider value={user}>
+      <AuthProvider value={{user}}>
       <Router>
         <Routes>
           <Route path="/">

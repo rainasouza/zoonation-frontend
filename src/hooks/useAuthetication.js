@@ -32,7 +32,8 @@ export const useAuthetication = () => {
             const {user} =  await createUserWithEmailAndPassword(
                 auth,
                 data.email,
-                data.password
+                data.password,
+                setLoading(false)
             )
             await updateProfile(user,{
                 displayName: data.displayName
@@ -60,10 +61,12 @@ export const useAuthetication = () => {
 
         try{
             await signInWithEmailAndPassword(auth, data.email, data.password)
+            setLoading(false);
         } catch (error){
             console.log(error.message)
             console.log(typeof error.message)
         }
+        setLoading(false);
     }
 
 

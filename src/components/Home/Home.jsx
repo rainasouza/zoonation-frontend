@@ -43,15 +43,10 @@ function Home() {
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" onClick={navigateToHome}>Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" onClick={navigateToSignup}>Cadastre-se</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" onClick={navigateToLogin}>Entrar</a>
-              </li>
+              
               { user && (
                 <li class="nav-item">
-                    <button class="btn btn-outline-dark" onClick={logout}>Sair</button>
+                  <a class="nav-link active" aria-current="page" onClick={logout}>Sair</a>
                 </li>
               )}
             </ul>
@@ -86,12 +81,25 @@ function Home() {
                 </p>
               </div>
             </div>
+            {!user &&(
+          
+            <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
+              <a type="button" class="btn btn-outline-dark" onClick={navigateToLogin}>Entrar</a>
+              <a type="button" class="btn btn-outline-dark" onClick={navigateToSignup}>Criar Conta</a>
+              </div>
+            
+            
 
+
+
+            )}
+
+            {user && (
             <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
               <a type="button" class="btn btn-outline-dark" onClick={navigateToAdoptionPage}>Deseja adotar?</a>
               <a type="button" class="btn btn-outline-dark" onClick={navigateToAdoptionForm}>Deseja por para adoção?</a>
               
-            </div>
+            </div>)}
 
           </div>
         </div>

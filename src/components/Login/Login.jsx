@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import { useAuthetication } from "../../hooks/useAuthetication";
+import { useAuthValue } from "../../context/AuthContext";
+
 
 
 
@@ -13,6 +15,8 @@ function Login(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const { user } = useAuthValue();
 
   const {login, error: authError, loading} = useAuthetication(); 
 
@@ -70,9 +74,11 @@ useEffect(() => {
           </div>
           
           <div class="col-12">
-          {!loading && <button className="btn btn-outline-dark">Login</button>}
+          {!loading && !user && <button className="btn btn-outline-dark">Login</button>}
           {loading && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
+          {user && <button className="btn btn-outline-dark" onClick={navigateToHome}> Acesse os animais </button>}
           {error && <p className="error">{error}</p>}
+          
           </div>
         </form>
         </div>
