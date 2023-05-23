@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
 import "./Signup.module.css";
 import { useAuthetication } from "../../hooks/useAuthetication";
+import { useAuthValue } from "../../context/AuthContext";
 
 
 
@@ -20,6 +21,7 @@ function Signup(){
   const [error, setError] = useState("");
 
   const {createUser, error: authError, loading} = useAuthetication(); 
+  const { user } = useAuthValue();
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -38,11 +40,12 @@ function Signup(){
 
     const res = await createUser(user)
     console.log(res);
-  
-
-
 } 
-
+useEffect(() => {
+  if (authError){
+    setError(authError);
+  }
+}, [authError])
 
 
 
@@ -94,8 +97,9 @@ function Signup(){
             <input type="password" class="form-control" name="confirmPassword" required placeholder="Mínimo de 6 Dígitos"value={confirmPassword} onChange={(e) =>setConfirmPassword(e.target.value)}/>
           </div>
           <div class="col-12">
-          {!loading && <button className="btn btn-outline-dark">Criar Conta</button>}
-          {loading && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
+          {!loading && !user && <button className="btn btn-outline-dark">Criar Conta</button>}
+          {loading && !user && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
+          {user && !loading && navigateToHome()}
           {error && <p className="error">{error}</p>}
           </div>
         </form>

@@ -75,8 +75,8 @@ useEffect(() => {
           
           <div class="col-12">
           {!loading && !user && <button className="btn btn-outline-dark">Login</button>}
-          {loading && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
-          {user && <button className="btn btn-outline-dark" onClick={navigateToHome}> Acesse os animais </button>}
+          {loading && !user && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
+          {user && !loading && navigateToHome()}
           {error && <p className="error">{error}</p>}
           
           </div>
