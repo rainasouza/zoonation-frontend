@@ -6,8 +6,6 @@ import "./Signup.module.css";
 import { useAuthetication } from "../../hooks/useAuthetication";
 import { useAuthValue } from "../../context/AuthContext";
 
-
-
 function Signup(){
 
   const navigate = useNavigate();
@@ -47,11 +45,6 @@ useEffect(() => {
   }
 }, [authError])
 
-
-
-
-
-
     return(
       <div>
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -71,8 +64,6 @@ useEffect(() => {
           </div>
         </nav>
         <br></br>
-
-        
 
       <div class="container">
         <form class="row g-3" onSubmit={handleSubmit}>

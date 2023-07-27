@@ -25,12 +25,12 @@ function Home() {
   }
   const navigateToHome = () => {
     navigate('/home');
-}
+  }
   const { user } = useAuthValue();
   const { logout } = useAuthetication();
 
   return (
-    
+
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -43,8 +43,8 @@ function Home() {
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" onClick={navigateToHome}>Home</a>
               </li>
-              
-              { user && (
+
+              {user && (
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" onClick={logout}>Sair</a>
                 </li>
@@ -54,19 +54,18 @@ function Home() {
         </div>
       </nav>
 
+      <div class="demo-wrap">
+        <img
+          class="demo-bg"
 
-    <div class="demo-wrap">
-      <img
-        class="demo-bg"
-        
-        alt="">
-      </img> 
-    </div>
+          alt="">
+        </img>
+      </div>
 
       <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div class="col-10 col-sm-8 col-lg-6">
-            <img src={dogLogo} alt="image"  width="300" height="400"loading="lazy"/>
+            <img src={dogLogo} alt="image" width="300" height="400" loading="lazy" />
           </div>
           <div class="col-lg-6">
             <div class="lc-block mb-3">
@@ -81,31 +80,24 @@ function Home() {
                 </p>
               </div>
             </div>
-            {!user &&(
-          
-            <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-              <a type="button" class="btn btn-outline-dark" onClick={navigateToLogin}>Entrar</a>
-              <a type="button" class="btn btn-outline-dark" onClick={navigateToSignup}>Criar Conta</a>
+            {!user && (
+              <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
+                <a type="button" class="btn btn-outline-dark" onClick={navigateToLogin}>Entrar</a>
+                <a type="button" class="btn btn-outline-dark" onClick={navigateToSignup}>Criar Conta</a>
               </div>
-            
-            
-
-
-
             )}
 
             {user && (
-            <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-              <a type="button" class="btn btn-outline-dark" onClick={navigateToAdoptionPage}>Deseja adotar?</a>
-              <a type="button" class="btn btn-outline-dark" onClick={navigateToAdoptionForm}>Deseja por para adoção?</a>
-              
-            </div>)}
+              <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
+                <a type="button" class="btn btn-outline-dark" onClick={navigateToAdoptionPage}>Deseja adotar?</a>
+                <a type="button" class="btn btn-outline-dark" onClick={navigateToAdoptionForm}>Deseja por para adoção?</a>
+              </div>)}
 
           </div>
         </div>
       </div>
-    </div>     
-    )
+    </div>
+  )
 }
 
 export default Home;

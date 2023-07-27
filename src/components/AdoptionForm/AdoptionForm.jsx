@@ -71,7 +71,7 @@ function AdoptionForm() {
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-outline-dark" onSubmit={console.log("raina")}>Enviar</button>
+            <button type="submit" class="btn btn-outline-dark">Enviar</button>
           </div>
         </form>
 

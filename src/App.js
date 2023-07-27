@@ -30,12 +30,7 @@ function App() {
     return <p>Carregando...</p>
   }
 
-
-
-
-
-
-
+  
   return (
     <div className='App'>
       <AuthProvider value={{user}}>
@@ -55,8 +50,6 @@ function App() {
       </AuthProvider>
     </div>
       
-      
-    
   );
 }
 
