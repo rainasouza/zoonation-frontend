@@ -2,15 +2,40 @@ import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
 import './AdoptionForm.module.css';
+import { useInsertDocument } from "../../hooks/useInsertDocument";
+import {useAuthValue} from "../../context/AuthContext";
 
 
-function AdoptionForm() {
+const AdoptionForm = () => {
     const navigate = useNavigate();
-    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [age, setAge] = useState("");
+    const [race, setRace] = useState("");
+    const [city, setCity] = useState("");
+    const [image, setImage] = useState("");
+    const [plusinfo, setPlusinfo] = useState("");
+    const {user} = useAuthValue();
+
+    const {insertDocument, response} = useInsertDocument("posts");
+
     const navigateToHome = () => {
-        navigate('/home');
-        
+        navigate('/home'); 
     }
+
+    const handleSubmit = (e) => {
+      e.preventDefaut();
+      
+    insertDocument({
+      name,
+      age,
+      race,
+      city,
+      image,
+      plusinfo,
+      uid: user.uid,
+    })
+    }
+
     return (
         <div >
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -62,16 +87,22 @@ function AdoptionForm() {
               <option>Pocinhos-PB</option>
             </select>
           </div>
-          <div class="col-sm-10">
-            <label for="formFile" class="fonte-texto">Foto do Animal</label>
-            <input class="form-control" type="file" id="formFile"/>
+          <div class="mb-3">
+          <label for="basic-url" class="form-label">Imagem do animal</label>
+          <div class="input-group">
+            <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4"/>
+          </div>
+          <div class="fonte-texto" id="basic-addon4">Coloque o link de endereço da imagem aqui!.</div>
           </div>
           <div class="col-sm-12">
             <label for="exampleFormControlTextarea1" class="fonte-texto">Deseja acrescentar mais informações sobre o(a) pequenino(a)? Nos deixe conhecer mais sobre personalidade dele(a)!</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-outline-dark">Enviar</button>
+            {!response.loading && <button type="submit" class="btn btn-outline-dark">Enviar</button>}
+            {response.loading && (<button className="btn btn-outline-dark" disabled>Aguarde...</button>)}
+            {response.error && <p className="error">{response.error}</p>};
           </div>
         </form>
 
@@ -79,8 +110,8 @@ function AdoptionForm() {
         </div>
 
         
-        )
-    }
+        );
+    };
     
 
 export default AdoptionForm;
