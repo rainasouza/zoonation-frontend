@@ -78,7 +78,6 @@ useEffect(() => {
           {loading && !user && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
           {user && !loading && navigateToHome()}
           {error && <p className="error">{error}</p>}
-          
           </div>
         </form>
         </div>

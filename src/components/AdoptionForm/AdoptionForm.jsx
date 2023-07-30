@@ -13,17 +13,38 @@ const AdoptionForm = () => {
     const [race, setRace] = useState("");
     const [city, setCity] = useState("");
     const [image, setImage] = useState("");
-    const [plusinfo, setPlusinfo] = useState("");
+    const [plusInfo, setPlusinfo] = useState("");
+    const [formError, setFormError] = useState("");
     const {user} = useAuthValue();
+    const {insertDocument, response} = useInsertDocument("animals");
 
-    const {insertDocument, response} = useInsertDocument("posts");
+  
 
     const navigateToHome = () => {
-        navigate('/home'); 
-    }
+        navigate('/home');}
 
     const handleSubmit = (e) => {
-      e.preventDefaut();
+      e.preventDefault();
+      setFormError("");
+      
+    //validate image URL
+    try{
+      new URL(image);
+    } catch (error){
+      setFormError("A imagem precisa ser uma URL.");
+    }
+
+    //cheking the values
+    if( !city || !race || !image){
+      setFormError("Preencha os campos de nome, cidade e imagem do animal!");
+    }
+
+    if(formError) return;
+
+
+
+
+
       
     insertDocument({
       name,
@@ -31,81 +52,143 @@ const AdoptionForm = () => {
       race,
       city,
       image,
-      plusinfo,
+      plusInfo,
       uid: user.uid,
+      createdBy: user.displayName
     })
-    }
+    navigateToHome();
+    };
 
     return (
         <div >
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <div className="container-fluid">
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand">ZooNation</a>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
+            <a className="navbar-brand">ZooNation</a>
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <a className="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
                 </li>
-        
               </ul>
             </div>
           </div>
         </nav>
         <br></br>
 
-<div class="container">
-        <form class="row g-3">
-        <div class="col-sm-5">
-            <label for="inputName" class="fonte-texto">Nome</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Tudo bem se ele não possuir um!"/>
+<div>
+        <form className="row g-3" onSubmit={handleSubmit}>
+        <div className="col-sm-5">
+            <label className="fonte-texto">Nome</label>
+            <input 
+            type="text" 
+            className="form-control" 
+            name="nameOfAnimal" 
+            placeholder="Tudo bem se ele não possuir um!"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            />
           </div>
-        <div class="col-sm-5">
-            <label for="inputAge" class="fonte-texto">Idade</label>
-            <select id="inputAge" class="form-select">
-              <option selected> 1-3 meses</option>
-              <option> 3-6 meses </option>
-              <option> 6-9 meses </option>
-              <option> 9-12 meses </option>
-              <option> 1+ ano </option>
-            </select>
-          </div>
-          <div class="col-sm-5">
-            <label for="inputRace" class="fonte-texto">Raça</label>
-            <input type="text" class="form-control" id="inputRace" placeholder="Raça Não Definida, Labrador, Poodle..."/>
-          </div>
-          <div class="col-sm-5">
-            <label for="inputCity" class="fonte-texto">Cidade</label>
-            <select id="inputCity" class="form-select">
-              <option selected>Campina Grande-PB</option>
-              <option>Montadas-PB</option>
-              <option>Lagoa Seca-PB</option>
-              <option>Puxinanã-PB</option>
-              <option>Esperança-PB</option>
-              <option>Pocinhos-PB</option>
-            </select>
-          </div>
-          <div class="mb-3">
-          <label for="basic-url" class="form-label">Imagem do animal</label>
-          <div class="input-group">
-            <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4"/>
-          </div>
-          <div class="fonte-texto" id="basic-addon4">Coloque o link de endereço da imagem aqui!.</div>
-          </div>
-          <div class="col-sm-12">
-            <label for="exampleFormControlTextarea1" class="fonte-texto">Deseja acrescentar mais informações sobre o(a) pequenino(a)? Nos deixe conhecer mais sobre personalidade dele(a)!</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          <div class="col-12">
-            {!response.loading && <button type="submit" class="btn btn-outline-dark">Enviar</button>}
-            {response.loading && (<button className="btn btn-outline-dark" disabled>Aguarde...</button>)}
-            {response.error && <p className="error">{response.error}</p>};
-          </div>
-        </form>
 
+          <label>
+            <span>
+            <div >
+            <label className="fonte-texto">Idade</label>
+            <input 
+            type="text" 
+            className="form-control" 
+            name="ageOfAnimal" 
+            placeholder="Ex: 1 mês, 1 ano..."
+            onChange={(e) => setAge(e.target.value)}
+            value={age}
+            />
+          </div>
+            </span>
+          </label>
+
+        <div >
+        <label>
+            <span>
+            <div>
+            <label className="fonte-texto">Raça</label>
+            <input 
+            type="text" 
+            className="form-control" 
+            name="raceOfAnimal" 
+            placeholder="Ex: labrador, indefinida..."
+            onChange={(e) => setRace(e.target.value)}
+            value={race}
+            />
+          </div>
+            </span>
+          </label>
+
+          </div>
+          <div>
+          <label>
+            <span>
+            <div className="col-sm-5">
+            <label className="fonte-texto">Cidade</label>
+            <input 
+            type="text" 
+            className="form-control" 
+            name="cityOfAnimal" 
+            placeholder="Ex: Montadas, Esperança..."
+            onChange={(e) => setCity(e.target.value)}
+            value={city}
+            />
+          </div>
+            </span>
+          </label>
+
+          </div>
+          <div>
+          <label>
+            <span>
+            <div className="col-sm-5">
+            <label className="fonte-texto">Foto do Animal!</label>
+            <input 
+            type="text" 
+            className="form-control" 
+            name="imageOfAnimal" 
+            placeholder="Anexe aqui o link de endereço da imagem."
+            onChange={(e) => setImage(e.target.value)}
+            value={image}
+            />
+          </div>
+            </span>
+          </label>
+          </div> 
+
+          <div>
+          <label>
+            <span>
+            <div className="col-sm-5">
+            <label className="fonte-texto">Informações adicionais</label>
+            <textarea  
+            className="form-control" 
+            name="plusInfoOfAnimal" 
+            placeholder="Fale mais sobre o pet"
+            onChange={(e) => setPlusinfo(e.target.value)}
+            value={plusInfo}
+            />
+          </div>
+            </span>
+          </label>
+
+          <div>
+          {!response.loading && <button className="btn btn-outline-dark">Enviar</button>}
+          {response.loading &&(
+            <button className="btn btn-outline-dark" disabled >
+              Aguarde...
+            </button>)}
+          {formError && <p className="error">{formError}</p>}
+          </div>
+
+          </div> 
+        </form>
         </div>
         </div>
 
