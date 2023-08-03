@@ -23,6 +23,12 @@ const AdoptionForm = () => {
     const navigateToHome = () => {
         navigate('/home');}
 
+    const navigateToAdopt = () => {
+        navigate('/toadopt');}
+  
+
+    
+
     const handleSubmit = (e) => {
       e.preventDefault();
       setFormError("");
@@ -41,11 +47,6 @@ const AdoptionForm = () => {
 
     if(formError) return;
 
-
-
-
-
-      
     insertDocument({
       name,
       age,
@@ -56,7 +57,7 @@ const AdoptionForm = () => {
       uid: user.uid,
       createdBy: user.displayName
     })
-    navigateToHome();
+    navigateToAdopt();
     };
 
     return (
