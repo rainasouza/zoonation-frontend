@@ -41,7 +41,7 @@ const AdoptionPage = () => {
             </div>
 
             {loading && <p> Carregando...</p>}
-            {animals && animals.map((animal) => <PostDetail key={animal.id} animal={animal}></PostDetail>)}
+            {Array.isArray(animals) && animals.map((animal) => <PostDetail key={animal.id} animal={animal}></PostDetail>)}
 
             
 
