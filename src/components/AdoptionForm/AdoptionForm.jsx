@@ -11,6 +11,7 @@ const AdoptionForm = () => {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [race, setRace] = useState("");
+    const [porte, setPorte] = useState("");
     const [city, setCity] = useState("");
     const [image, setImage] = useState("");
     const [plusInfo, setPlusinfo] = useState("");
@@ -51,6 +52,7 @@ const AdoptionForm = () => {
       name,
       age,
       race,
+      porte,
       city,
       image,
       plusInfo,
@@ -126,6 +128,24 @@ const AdoptionForm = () => {
             </span>
           </label>
 
+          <div>
+          <label>
+            <span>
+            <div className="col-sm-5">
+            <label className="fonte-texto">Porte</label>
+            <input 
+            type="text" 
+            className="form-control" 
+            name="porteOfAnimal" 
+            placeholder="Pequeno, médio ou grande."
+            onChange={(e) => setPorte(e.target.value)}
+            value={porte}
+            />
+          </div>
+            </span>
+          </label>
+          </div> 
+
           </div>
           <div>
           <label>
@@ -143,8 +163,8 @@ const AdoptionForm = () => {
           </div>
             </span>
           </label>
-
           </div>
+
           <div>
           <label>
             <span>

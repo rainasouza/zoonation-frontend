@@ -30,29 +30,35 @@ function Home() {
   const { logout } = useAuthetication();
 
   return (
-
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" >ZooNation</a>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" onClick={navigateToHome}>Home</a>
-              </li>
+
+<nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <div className="container-fluid">
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <a className="navbar-brand">ZooNation</a>
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <a className="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
 
               {user && (
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" onClick={logout}>Sair</a>
+                <li className="nav-item">
+                  <button className="btn btn-outline-success" aria-current="page" onClick={logout}>Sair</button>
                 </li>
               )}
-            </ul>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+        <br></br>
+
+        
+        
+        
+
+
+
 
       <div class="demo-wrap">
         <img
