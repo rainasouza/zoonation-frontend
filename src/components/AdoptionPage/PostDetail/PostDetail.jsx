@@ -8,9 +8,6 @@ import { useState } from "react";
 
 const PostDetail = ({animal}) => {
 
-
-
-
     return(
         
         <div>
@@ -23,7 +20,6 @@ const PostDetail = ({animal}) => {
 
 
 
-            <button  >Ler</button>/
         </div>
     );
 };
