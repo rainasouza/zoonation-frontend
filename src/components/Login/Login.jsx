@@ -8,8 +8,13 @@ import { useAuthValue } from "../../context/AuthContext";
 
 
 
+
 function Login(){
   const navigate = useNavigate();
+
+  const navigateToSignup = () => {
+    navigate('/signup')
+  }
   const navigateToHome = () => {
     navigate('/home');}
   const [email, setEmail] = useState("");
@@ -62,28 +67,45 @@ useEffect(() => {
         </nav>
         <br></br>
 
-        <div class="container">
-        <form class="row g-3" onSubmit={handleSubmit}>
-        <div class="col-sm-5">
-            <label>Email:</label>
-            <input type="email" class="form-control" name="email" required placeholder="Email do Usuário" value={email} onChange={(e) =>setEmail(e.target.value)}/>
+
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Faça o Login ou Crie Seu Perfil</h1>
+        <p class="col-lg-10 fs-4"> testee.</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" onSubmit={handleSubmit}>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput"  name = "email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@example.com"/>
+            <label for="floatingInput">Email address</label>
           </div>
-          <div class="col-sm-5">
-            <label>Senha:</label>
-            <input type="password" class="form-control" name="password" required placeholder="Mínimo de 6 Dígitos" value={password} onChange={(e) =>setPassword(e.target.value)}/>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" required placeholder="Mínimo de 6 Dígitos" value={password} onChange={(e) =>setPassword(e.target.value)} />
+            <label for="floatingPassword">Password</label>
           </div>
-          
-          <div class="col-12">
-          {!loading && !user && <button className="btn btn-outline-dark">Login</button>}
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"/> Remember me
+            </label>
+          </div>
+
+
+          {!loading && !user &&<button class="w-100 btn btn-lg btn-primary" type="submit">Login </button>}
+          {!loading && !user &&                <a type="button" class="btn btn-outline-dark" onClick={navigateToSignup}>Ainda não tem conta? Cadastre-se</a>
+}
+
           {loading && !user && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
           {user && !loading && navigateToHome()}
           {error && <p className="error">{error}</p>}
-          </div>
+
+          <hr class="my-4"/>
+          <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
         </form>
-        </div>
-
-
-
+      </div>
+    </div>
+  </div>
+        
 
       </div>
         

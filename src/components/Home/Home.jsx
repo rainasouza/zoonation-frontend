@@ -1,6 +1,8 @@
 import React from "react";
 import './Home.module.css';
 import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.min.js";
+import "./Home.module.css"
 import dogLogo from "../../images/dog_logo.jpg"
 import { useNavigate } from "react-router-dom";
 import Signup from "../Signup/Signup";
@@ -26,6 +28,9 @@ function Home() {
   const navigateToHome = () => {
     navigate('/home');
   }
+  const navigateToProfile = () => {
+    navigate('/profile');
+}
   const { user } = useAuthValue();
   const { logout } = useAuthetication();
 
@@ -41,6 +46,8 @@ function Home() {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <a className="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
+              <a className="nav-link active" aria-current="page" onClick={navigateToProfile} >Profile</a>
+
 
               {user && (
                 <li className="nav-item">
@@ -52,13 +59,6 @@ function Home() {
           </div>
         </nav>
         <br></br>
-
-        
-        
-        
-
-
-
 
       <div class="demo-wrap">
         <img
@@ -89,7 +89,6 @@ function Home() {
             {!user && (
               <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
                 <a type="button" class="btn btn-outline-dark" onClick={navigateToLogin}>Entrar</a>
-                <a type="button" class="btn btn-outline-dark" onClick={navigateToSignup}>Criar Conta</a>
               </div>
             )}
 

@@ -26,6 +26,8 @@ export const useAuthetication = () => {
     const createUser = async (data) => {
         checkIfIsCancelled()
         setLoading(true)
+
+        //creating a user
         try {
             const {user} =  await createUserWithEmailAndPassword(
                 auth,

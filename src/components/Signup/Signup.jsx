@@ -12,7 +12,6 @@ function Signup(){
   const navigateToHome = () => {
     navigate('/home');}
   const [displayName, setDisplayName] = useState("");
-  const [contact, setContact] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -71,10 +70,7 @@ useEffect(() => {
             <label>Nome:</label>
             <input type="text" class="form-control" name="displayName" required placeholder="Nome do Usuário" value={displayName} onChange={(e) =>setDisplayName(e.target.value)}/>
           </div>
-        <div class="col-sm-5">
-            <label>Telefone:</label>
-            <input type="text" class="form-control" name="contact" required placeholder="Contato do Usuário" value={contact} onChange={(e) =>setContact(e.target.value)}/>
-        </div>
+        
           <div class="col-sm-5">
             <label>Email:</label>
             <input type="email" class="form-control" name="email" required placeholder="Email do Usuário" value={email} onChange={(e) =>setEmail(e.target.value)}/>

@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
 import './AdoptionForm.module.css';
+import "bootstrap/dist/js/bootstrap.min.js";
+
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import {useAuthValue} from "../../context/AuthContext";
 
@@ -14,7 +16,7 @@ const AdoptionForm = () => {
     const [porte, setPorte] = useState("");
     const [city, setCity] = useState("");
     const [image, setImage] = useState("");
-    const [plusInfo, setPlusinfo] = useState("");
+    const [contact, setContact] = useState("");
     const [formError, setFormError] = useState("");
     const {user} = useAuthValue();
     const {insertDocument, response} = useInsertDocument("animals");
@@ -27,9 +29,6 @@ const AdoptionForm = () => {
     const navigateToAdopt = () => {
         navigate('/toadopt');}
   
-
-    
-
     const handleSubmit = (e) => {
       e.preventDefault();
       setFormError("");
@@ -42,8 +41,8 @@ const AdoptionForm = () => {
     }
 
     //cheking the values
-    if( !city || !race || !image){
-      setFormError("Preencha os campos de nome, cidade e imagem do animal!");
+    if( !city || !contact || !image || !age){
+      setFormError("Preencha os campos de nome, idade, cidade e imagem do animal!");
     }
 
     if(formError) return;
@@ -55,7 +54,7 @@ const AdoptionForm = () => {
       porte,
       city,
       image,
-      plusInfo,
+      contact,
       uid: user.uid,
       createdBy: user.displayName
     })
@@ -82,122 +81,127 @@ const AdoptionForm = () => {
         <br></br>
 
 <div>
-        <form className="row g-3" onSubmit={handleSubmit}>
-        <div className="col-sm-5">
-            <label className="fonte-texto">Nome</label>
+        <form className="" onSubmit={handleSubmit}>
+
+          
+        <div class="container text-center">
+          <div class=".col-4">
+            <label className="">Nome</label>
             <input 
             type="text" 
-            className="form-control" 
+            className="form-control col-md-4" 
             name="nameOfAnimal" 
             placeholder="Tudo bem se ele não possuir um!"
             onChange={(e) => setName(e.target.value)}
             value={name}
             />
           </div>
+          </div>
 
           <label>
             <span>
-            <div >
-            <label className="fonte-texto">Idade</label>
+            <div class="container text-center">
+          <div class=".col-4">
+            <label className="">Idade</label>
             <input 
             type="text" 
-            className="form-control" 
+            className="form-control col-md-4" 
             name="ageOfAnimal" 
-            placeholder="Ex: 1 mês, 1 ano..."
+            placeholder="1 mês, 3 meses... (obrigatório)"
             onChange={(e) => setAge(e.target.value)}
             value={age}
             />
           </div>
-            </span>
-          </label>
-
-        <div >
-        <label>
-            <span>
-            <div>
-            <label className="fonte-texto">Raça</label>
-            <input 
-            type="text" 
-            className="form-control" 
-            name="raceOfAnimal" 
-            placeholder="Ex: labrador, indefinida..."
-            onChange={(e) => setRace(e.target.value)}
-            value={race}
-            />
           </div>
             </span>
           </label>
 
-          <div>
+        <div>
+
           <label>
             <span>
-            <div className="col-sm-5">
-            <label className="fonte-texto">Porte</label>
+            <div class="container text-center">
+          <div class=".col-md-4">
+            <label className="">Porte</label>
             <input 
             type="text" 
-            className="form-control" 
+            className="form-control col-md-4" 
             name="porteOfAnimal" 
-            placeholder="Pequeno, médio ou grande."
+            placeholder="Opcional"
             onChange={(e) => setPorte(e.target.value)}
             value={porte}
             />
           </div>
+          </div>
             </span>
           </label>
-          </div> 
 
-          </div>
           <div>
+
           <label>
             <span>
-            <div className="col-sm-5">
-            <label className="fonte-texto">Cidade</label>
+            <div class="container text-center">
+          <div class=".col-md-4">
+            <label className="">Cidade</label>
             <input 
             type="text" 
-            className="form-control" 
+            className="form-control col-md-4" 
             name="cityOfAnimal" 
-            placeholder="Ex: Montadas, Esperança..."
+            placeholder="Obrigatório"
             onChange={(e) => setCity(e.target.value)}
             value={city}
             />
           </div>
-            </span>
-          </label>
-          </div>
-
-          <div>
-          <label>
-            <span>
-            <div className="col-sm-5">
-            <label className="fonte-texto">Foto do Animal!</label>
-            <input 
-            type="text" 
-            className="form-control" 
-            name="imageOfAnimal" 
-            placeholder="Anexe aqui o link de endereço da imagem."
-            onChange={(e) => setImage(e.target.value)}
-            value={image}
-            />
           </div>
             </span>
           </label>
           </div> 
+          </div>
 
           <div>
+
           <label>
             <span>
-            <div className="col-sm-5">
-            <label className="fonte-texto">Informações adicionais</label>
-            <textarea  
-            className="form-control" 
-            name="plusInfoOfAnimal" 
-            placeholder="Fale mais sobre o pet"
-            onChange={(e) => setPlusinfo(e.target.value)}
-            value={plusInfo}
+            <div class="container text-center">
+          <div class=".col-md-4">
+            <label className="">Contato</label>
+            <input 
+            type="text" 
+            className="form-control col-md-4" 
+            name="contactOfAnimal" 
+            placeholder="Obrigatório"
+            onChange={(e) => setContact(e.target.value)}
+            value={contact}
             />
+          </div>
           </div>
             </span>
           </label>
+          </div>
+
+          <div>
+
+          <label>
+            <span>
+              <div class="container text-center">
+              <div class=".col-md-4">
+              <label className="">Imagem</label>
+                <input 
+                  type="text" 
+                  className="form-control col-md-4" 
+                  name="imageOfAnimal" 
+                  placeholder="Obrigatório (endereço de imagem)"
+                  onChange={(e) => setImage(e.target.value)}
+                  value={image}
+                  />
+                </div>
+                </div>
+                  </span>
+                </label>
+
+          </div> 
+          <div>
+         
 
           <div>
           {!response.loading && <button className="btn btn-outline-dark">Enviar</button>}

@@ -4,12 +4,13 @@ import React from "react";
 import { useState } from "react";
 
 
-const PostDetail = ({animal}) => {
+
+
+const PostModal = ({animal}) => {
 
     return(
         
         <div>
-            <img src = {animal.image} alt={animal.name} />
             <h2>{animal.name}</h2>
             <p>{animal.createdBy}</p>
 
@@ -21,4 +22,4 @@ const PostDetail = ({animal}) => {
         </div>
     );
 };
-export default PostDetail;
+export default PostModal;
