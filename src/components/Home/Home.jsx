@@ -46,7 +46,11 @@ function Home() {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <a className="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
-              <a className="nav-link active" aria-current="page" onClick={navigateToProfile} >Profile</a>
+              {user && (
+                <li className="nav-item">
+                  <button className="btn btn-outline-success" aria-current="page" onClick={navigateToProfile}>Profile</button>
+                </li>
+              )}
 
 
               {user && (

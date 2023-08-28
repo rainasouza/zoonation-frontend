@@ -11,7 +11,7 @@ const PostModal = ({animal}) => {
     return(
         
         <div>
-            <h2>{animal.name}</h2>
+            <h2>{animal.name} </h2>
             <p>{animal.createdBy}</p>
 
 
