@@ -2,19 +2,18 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { useState } from "react";
-import PostModal from "./PostModal";
 
 
 const PostDetail = ({animal}) => {
     console.log("post detail", animal.name)
     
-
-
     return(
         <div>
+
             <img src = {animal.image} alt={animal.name} />
             <h2>{animal.name}</h2>
             <p>{animal.createdBy}</p>
+
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Launch demo modal
             </button>
@@ -26,7 +25,10 @@ const PostDetail = ({animal}) => {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <PostModal key={animal.id} animal={animal}></PostModal>
+
+                  <h2>{animal.name}</h2>
+                  <p>{animal.createdBy}</p>                  
+
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

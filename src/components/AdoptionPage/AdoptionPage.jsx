@@ -5,7 +5,6 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import { useNavigate, Link } from "react-router-dom";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import PostDetail from "./PostDetail/PostDetail";
-import PostModal from "./PostDetail/PostModal";
 
 
 const AdoptionPage = () => {
@@ -37,10 +36,9 @@ const AdoptionPage = () => {
         <br></br>
             </div>
 
-        {(loading && <p> Carregando...</p>)}
             
 
-        {!loading && Array.isArray(animals) && animals.map((animal) =><PostDetail key={animal.id} animal={animal}></PostDetail>)}
+        {Array.isArray(animals) && animals.map((animal) =><PostDetail key={animal.id} animal={animal}></PostDetail>)}
         </div>
             
     )
