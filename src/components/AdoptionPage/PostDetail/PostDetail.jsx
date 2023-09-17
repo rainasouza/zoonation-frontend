@@ -8,7 +8,6 @@ const PostDetail = ({animal}) => {
     
     return(
         <div>
-
             <img src = {animal.image} alt={animal.name} />
             <h2>{animal.name}</h2>
             <p>{animal.createdBy}</p>
