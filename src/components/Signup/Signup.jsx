@@ -46,7 +46,7 @@ useEffect(() => {
 
     return(
       <div>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav cclassName="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -64,25 +64,38 @@ useEffect(() => {
         </nav>
         <br></br>
 
-      <div class="container">
-        <form class="row g-3" onSubmit={handleSubmit}>
-        <div class="col-sm-5">
-            <label>Nome:</label>
-            <input type="text" class="form-control" name="displayName" required placeholder="Nome do Usuário" value={displayName} onChange={(e) =>setDisplayName(e.target.value)}/>
+
+
+
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Crie Seu Perfil</h1>
+        <p class="col-lg-10 fs-4"> testee.</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" onSubmit={handleSubmit}>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name = "displayName" value={displayName} onChange={(e) => setDisplayName(e.target.value)} required placeholder="Nome do Usuário"/>
+            <label for="floatingInput">Nome</label>
           </div>
-        
-          <div class="col-sm-5">
-            <label>Email:</label>
-            <input type="email" class="form-control" name="email" required placeholder="Email do Usuário" value={email} onChange={(e) =>setEmail(e.target.value)}/>
+
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" name = "email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Email"/>
+            <label for="floatingInput">Email</label>
           </div>
-          <div class="col-sm-5">
-            <label>Senha:</label>
-            <input type="password" class="form-control" name="password" required placeholder="Mínimo de 6 Dígitos" value={password} onChange={(e) =>setPassword(e.target.value)}/>
+
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" name = "password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Senha"/>
+            <label for="floatingInput">Senha (mínimo de 6 dígitos)</label>
           </div>
-          <div class="col-sm-10">
-            <label>Confirme sua Senha:</label>
-            <input type="password" class="form-control" name="confirmPassword" required placeholder="Mínimo de 6 Dígitos"value={confirmPassword} onChange={(e) =>setConfirmPassword(e.target.value)}/>
+
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" name = "confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required placeholder="Senha"/>
+            <label for="floatingInput">Confirme sua senha</label>
           </div>
+
           <div class="col-12">
           {!loading && !user && <button className="btn btn-outline-dark">Criar Conta</button>}
           {loading && !user && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
@@ -90,8 +103,13 @@ useEffect(() => {
           {error && <p className="error">{error}</p>}
           </div>
         </form>
-        </div>
 
+
+
+
+      </div>
+      </div>
+      </div>
       </div>
     )
 }

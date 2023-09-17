@@ -49,7 +49,7 @@ useEffect(() => {
 
     return(
       <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -84,15 +84,11 @@ useEffect(() => {
             <input type="password" class="form-control" id="floatingPassword" required placeholder="Mínimo de 6 Dígitos" value={password} onChange={(e) =>setPassword(e.target.value)} />
             <label for="floatingPassword">Password</label>
           </div>
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"/> Remember me
-            </label>
-          </div>
+
 
 
           {!loading && !user &&<button class="w-100 btn btn-lg btn-primary" type="submit">Login </button>}
-          {!loading && !user &&                <a type="button" class="btn btn-outline-dark" onClick={navigateToSignup}>Ainda não tem conta? Cadastre-se</a>
+          {!loading && !user &&  <a type="button" class="btn btn-outline-dark" onClick={navigateToSignup}>Ainda não tem conta? Cadastre-se</a>
 }
 
           {loading && !user && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
@@ -100,7 +96,6 @@ useEffect(() => {
           {error && <p className="error">{error}</p>}
 
           <hr class="my-4"/>
-          <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
         </form>
       </div>
     </div>

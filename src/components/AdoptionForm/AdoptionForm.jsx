@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
 import './AdoptionForm.module.css';
 import "bootstrap/dist/js/bootstrap.min.js";
-
+import { useAuthetication } from "../../hooks/useAuthetication";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import {useAuthValue} from "../../context/AuthContext";
 
@@ -26,6 +26,11 @@ const AdoptionForm = () => {
     const navigateToHome = () => {
         navigate('/home');}
 
+    const { logout } = useAuthetication();
+
+    const navigateToProfile = () => {
+      navigate('/profile');
+  }
     const navigateToAdopt = () => {
         navigate('/toadopt');}
   
@@ -63,7 +68,7 @@ const AdoptionForm = () => {
 
     return (
         <div >
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container-fluid">
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -74,6 +79,12 @@ const AdoptionForm = () => {
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
                 </li>
+                {user && (
+                      <li className="nav-item">
+                        <a class="nav-link active" aria-current="page" onClick={navigateToProfile} >Perfil</a>
+                      </li>
+                    )}
+
               </ul>
             </div>
           </div>
@@ -81,6 +92,7 @@ const AdoptionForm = () => {
         <br></br>
 
 <div>
+
         <form className="" onSubmit={handleSubmit}>
 
           
