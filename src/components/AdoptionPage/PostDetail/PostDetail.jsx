@@ -25,6 +25,8 @@ const PostDetail = ({animal}) => {
                   </div>
                   <div class="modal-body">
 
+
+
                   <h2>{animal.name}</h2>
                   <p>{animal.createdBy}</p>                  
 
