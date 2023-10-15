@@ -2,7 +2,7 @@ import React from "react";
 import {useState, useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
-import "./Signup.module.css";
+import styles from "./Signup.module.css";
 import { useAuthetication } from "../../hooks/useAuthetication";
 import { useAuthValue } from "../../context/AuthContext";
 
@@ -45,8 +45,8 @@ useEffect(() => {
 }, [authError])
 
     return(
-      <div>
-          <nav cclassName="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className={styles.bodysignup}>
+        <nav className="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -62,19 +62,18 @@ useEffect(() => {
             </div>
           </div>
         </nav>
-        <br></br>
-
+        
 
 
 
         <div class="container col-xl-10 col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-lg-5 py-5">
       <div class="col-lg-7 text-center text-lg-start">
-        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Crie Seu Perfil</h1>
-        <p class="col-lg-10 fs-4"> testee.</p>
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Crie uma única vez</h1>
+        <p class="col-lg-10 fs-4"> e tenha acesso aos pets! </p>
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" onSubmit={handleSubmit}>
+        <form class="p-4 p-md-5 bg-body-tertiary" onSubmit={handleSubmit}>
 
           <div class="form-floating mb-3">
             <input type="text" class="form-control" name = "displayName" value={displayName} onChange={(e) => setDisplayName(e.target.value)} required placeholder="Nome do Usuário"/>
@@ -97,13 +96,12 @@ useEffect(() => {
           </div>
 
           <div class="col-12">
-          {!loading && !user && <button className="btn btn-outline-dark">Criar Conta</button>}
+          {!loading && !user && <button className={styles.meubotao} >Criar Conta</button>}
           {loading && !user && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
           {user && !loading && navigateToHome()}
           {error && <p className="error">{error}</p>}
           </div>
         </form>
-
 
 
 

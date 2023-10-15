@@ -7,7 +7,6 @@ import Signup from './components/Signup/Signup';
 import Login from './components/Login/Login';
 import PostDetail from './components/AdoptionPage/PostDetail/PostDetail';
 import Profile from './components/Profile/Profile';
-
 import{
   BrowserRouter as Router,
   Routes,

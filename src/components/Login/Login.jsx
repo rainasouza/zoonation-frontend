@@ -4,10 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { redirect, useNavigate } from "react-router-dom";
 import { useAuthetication } from "../../hooks/useAuthetication";
 import { useAuthValue } from "../../context/AuthContext";
-
-
-
-
+import styles from './Login.module.css';
 
 function Login(){
   const navigate = useNavigate();
@@ -41,15 +38,15 @@ function Login(){
 
    
 } 
-useEffect(() => {
-  if (authError){
-    setError(authError);
-  }
-}, [authError])
+    useEffect(() => {
+      if (authError){
+        setError(authError);
+      }
+    }, [authError])
 
     return(
-      <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className={styles.bodylogin}>
+        <nav className="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -71,25 +68,24 @@ useEffect(() => {
         <div class="container col-xl-10 col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-lg-5 py-5">
       <div class="col-lg-7 text-center text-lg-start">
-        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Faça o Login ou Crie Seu Perfil</h1>
-        <p class="col-lg-10 fs-4"> testee.</p>
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Entre com sua conta Google</h1>
+        <p class="col-lg-10 fs-4"> e acesse os animais para adoção.</p>
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" onSubmit={handleSubmit}>
+        <form class="p-4 p-md-5bg-body-tertiary" onSubmit={handleSubmit}>
           <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput"  name = "email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@example.com"/>
-            <label for="floatingInput">Email address</label>
+            <label for="floatingInput">Email</label>
           </div>
           <div class="form-floating mb-3">
             <input type="password" class="form-control" id="floatingPassword" required placeholder="Mínimo de 6 Dígitos" value={password} onChange={(e) =>setPassword(e.target.value)} />
-            <label for="floatingPassword">Password</label>
+            <label for="floatingPassword">Senha (6 caracteres)</label>
           </div>
 
 
 
-          {!loading && !user &&<button class="w-100 btn btn-lg btn-primary" type="submit">Login </button>}
-          {!loading && !user &&  <a type="button" class="btn btn-outline-dark" onClick={navigateToSignup}>Ainda não tem conta? Cadastre-se</a>
-}
+          {!loading && !user && <button  className={styles.meubotao} type="submit"> Entrar </button>}
+
 
           {loading && !user && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
           {user && !loading && navigateToHome()}

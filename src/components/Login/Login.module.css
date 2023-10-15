@@ -12,7 +12,7 @@
     background-color: #28472c; /* Cor alterada ao passar o mouse (#0f1e11) */
   }
 
-  .bodysignup{
+  .bodylogin{
     text-shadow: 0.1em 0.1em 0.6em rgb(32, 47, 43);
     text-rendering: optimizeSpeed;
     text-emphasis-color: white;
@@ -21,10 +21,3 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #142918;
 }
-
-.align{
-    align-content: center;
-}
-
-
-

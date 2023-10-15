@@ -1,9 +1,35 @@
 body{
     background-image: url("background.png");
+    color: #142918;
+}
+.bodyhome{
+    text-shadow: 0.3em 0.5em 0.9em rgb(32, 47, 43);
+    text-rendering: optimizeSpeed;
+    text-emphasis-color: white;
+    background-size: auto;
+    background-attachment: fixed;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #142918;
 }
 
-.fonte{
-    text-shadow: 0.1em 0.1em 0.2em black}
+.meubotao {
+    background-color: #142918; /* Cor desejada (#142918) */
+    color: white; /* Cor do texto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 3cm;
+  }
+
+  .meubotao:hover {
+    background-color: #28472c; /* Cor alterada ao passar o mouse (#0f1e11) */
+  }
+  
+
+
+
+
 
 
 
