@@ -2,40 +2,58 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { useState } from "react";
+import styles from './PostDetail.module.css'
 
 
 const PostDetail = ({animal}) => {
     
     return(
-        <div>
+      <div className={styles.body}>
+
+        <div className={styles.images}>
+          <br></br>
+
             <img src = {animal.image} alt={animal.name} />
             <h2>{animal.name}</h2>
-            <p>{animal.createdBy}</p>
-
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#${animal.id}`}>
-              Launch demo modal
+            <p>{animal.age}</p>
+  
+      
+            <button type="button" className={styles.meubotao} data-bs-toggle="modal" data-bs-target={`#${animal.id}`}>
+              Informações
             </button>
+            <br></br>
+            <br></br>
+            <div className={styles.modal}>
             <div class="modal fade" id={animal.id}  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id={animal.id} >Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id={animal.id}> Cadastrado por: {animal.createdBy}   </h1>
                   </div>
                   <div class="modal-body">
 
-                  <h2>{animal.name}</h2>
-                  <p>{animal.createdBy}</p>                  
+                  <p> Me chamo: {animal.name}</p>
+                  <p> Minha idade aproximadamente: {animal.age}</p> 
+                  <p> Minha raça:{animal.race}</p>
+                  <p> Meu porte: {animal.porte}</p>
+                  <p> Onde resido: {animal.city}</p>
+                  <p> Entre em contato através de: {animal.contact}</p>
 
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                   </div>
                 </div>
               </div>
             </div>
         </div>
+        </div>
+        <br></br>
+        <br></br>
+
+        </div>
+
+      
         
     );
 };

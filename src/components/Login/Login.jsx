@@ -46,6 +46,7 @@ function Login(){
 
     return(
       <div className={styles.bodylogin}>
+        <div className={styles.nav}>
         <nav className="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,9 +63,11 @@ function Login(){
             </div>
           </div>
         </nav>
+        </div>
+        <br></br>
         <br></br>
 
-
+<div className={styles.box}>
         <div class="container col-xl-10 col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-lg-5 py-5">
       <div class="col-lg-7 text-center text-lg-start">
@@ -98,6 +101,7 @@ function Login(){
   </div>
         
 
+      </div>
       </div>
         
     )

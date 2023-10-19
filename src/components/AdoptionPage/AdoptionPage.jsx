@@ -7,6 +7,7 @@ import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import PostDetail from "./PostDetail/PostDetail";
 import { useAuthetication } from "../../hooks/useAuthetication";
 import { useAuthValue } from "../../context/AuthContext";
+import styles from './AdoptionPage.module.css';
 
 
 const AdoptionPage = () => {
@@ -27,9 +28,12 @@ const AdoptionPage = () => {
     const {documents: animals, loading} = useFetchDocuments("animals");
 
     return(
-        <div>
+      <div>
+        
+          <div className={styles.bodyadpt}>
+          <div className={styles.nav}>
             <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-light" >
           <div className="container-fluid">
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -53,12 +57,16 @@ const AdoptionPage = () => {
             </div>
           </div>
         </nav>
-        <br></br>
+            </div>
             </div>
 
             
-
+            <br></br>
+            <br></br>
         {Array.isArray(animals) && animals.map((animal) =><PostDetail key={animal.id} animal={animal}></PostDetail>)}
+        <br></br>
+        
+        </div>
         </div>
             
     )

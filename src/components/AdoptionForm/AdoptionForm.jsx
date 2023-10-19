@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
-import './AdoptionForm.module.css';
+import styles from './AdoptionForm.module.css';
 import "bootstrap/dist/js/bootstrap.min.js";
 import { useAuthetication } from "../../hooks/useAuthetication";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
@@ -20,8 +20,6 @@ const AdoptionForm = () => {
     const [formError, setFormError] = useState("");
     const {user} = useAuthValue();
     const {insertDocument, response} = useInsertDocument("animals");
-
-  
 
     const navigateToHome = () => {
         navigate('/home');}
@@ -67,8 +65,8 @@ const AdoptionForm = () => {
     };
 
     return (
-        <div >
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className={styles.bodyform} >
+        <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container-fluid">
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -89,35 +87,38 @@ const AdoptionForm = () => {
             </div>
           </div>
         </nav>
-        <br></br>
 
-<div>
+      <div className={styles.container}>
+        <div>
+          <form className={styles.form} onSubmit={handleSubmit}>
 
-        <form className="" onSubmit={handleSubmit}>
+            <label>
+              <span>
+              <div class="container text-center">
+            <div class="">
+              <label className="">Nome</label>
+              <input 
+              type="text" 
+              className="form-control " 
+              name="nameOfAnimal" 
+              placeholder="1 mês, 3 meses... (obrigatório)"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              />
+            </div>
+            </div>
+              </span>
+            </label>
 
-          
-        <div class="container text-center">
-          <div class=".col-4">
-            <label className="">Nome</label>
-            <input 
-            type="text" 
-            className="form-control col-md-4" 
-            name="nameOfAnimal" 
-            placeholder="Tudo bem se ele não possuir um!"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-            />
-          </div>
-          </div>
-
+        <div>
           <label>
             <span>
             <div class="container text-center">
-          <div class=".col-4">
+          <div class=".container">
             <label className="">Idade</label>
             <input 
             type="text" 
-            className="form-control col-md-4" 
+            className="form-control" 
             name="ageOfAnimal" 
             placeholder="1 mês, 3 meses... (obrigatório)"
             onChange={(e) => setAge(e.target.value)}
@@ -127,14 +128,15 @@ const AdoptionForm = () => {
           </div>
             </span>
           </label>
+          </div>
 
         <div>
 
           <label>
             <span>
             <div class="container text-center">
-          <div class=".col-md-4">
-            <label className="">Porte</label>
+          <div class="container">
+            <label className=".col-md-6">Porte</label>
             <input 
             type="text" 
             className="form-control col-md-4" 
@@ -148,7 +150,7 @@ const AdoptionForm = () => {
             </span>
           </label>
 
-          <div>
+        <div>
 
           <label>
             <span>
@@ -228,6 +230,8 @@ const AdoptionForm = () => {
         </form>
         </div>
         </div>
+        </div>
+        
 
         
         );

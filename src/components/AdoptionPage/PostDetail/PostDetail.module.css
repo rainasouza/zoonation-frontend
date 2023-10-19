@@ -1,0 +1,37 @@
+.body{
+    background-attachment: fixed;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #0e1e16;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.meubotao {
+    background-color: #142918; /* Cor desejada (#142918) */
+    color: white; /* Cor do texto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 3cm;
+    
+  }
+
+.meubotao:hover {
+    background-color: #28472c; /* Cor alterada ao passar o mouse (#0f1e11) */
+}
+
+.modal{
+    text-align: left;
+    text-shadow: none;
+}
+
+.images{
+    box-shadow: rgba(0, 0, 0, 0.56) 10px 22px 70px 4px;    
+    border-radius: 150px;
+    background-position-x: center;
+    background-color:rgba(218, 161, 126, 0.29);; /* Cor escura com transparência */
+}

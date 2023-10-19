@@ -1,4 +1,42 @@
-body {
-    background-image: url('https://cdn2.vectorstock.com/i/1000x1000/92/21/cat-paw-footprint-seamless-pattern-background-vector-33969221.jpg');
-    
+.bodyform{
+    text-shadow: 0.3em 0.3em 0.9em rgb(221, 125, 80);
+    text-rendering: optimizeSpeed;
+    background-size: auto;
+    background-attachment: fixed;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #14291e;
+    text-align: center;
 }
+
+.meubotao {
+    background-color: #142918; /* Cor desejada (#142918) */
+    color: white; /* Cor do texto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 3cm;
+  }
+
+  .meubotao:hover {
+    background-color: #28472c; /* Cor alterada ao passar o mouse (#0f1e11) */
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+  }
+  

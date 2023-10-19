@@ -36,6 +36,7 @@ function Home() {
 
   return (
     <div className={styles.bodyhome}>
+      <div className={styles.nav}>
       <nav className="navbar navbar-expand-lg navbar-light"  >
         
                 <div className="container-fluid">
@@ -60,11 +61,16 @@ function Home() {
                   </div>
                 </div>
               </nav>
+              </div>
+              <br></br>
+              <br></br>
 
 
-        <br></br>
+
+        
 
       {!user && (
+        <div className={styles.box}>
           <div class="px-4 pt-5 my-5 text-center ">
           <h1 class="display-4 fw-bold text-body-emphasis">ZooNation</h1>
           <div class="col-lg-6 mx-auto">
@@ -79,11 +85,14 @@ function Home() {
             )}
             </div>
           </div>
+          </div>
+          <br></br>
 
         </div>)}
 
   
         {user &&(
+          <div className={styles.box}>
               <div class="container col-xxl-8 px-4 py-5">
                 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                   <div class="col-10 col-sm-8 col-lg-6">
@@ -110,12 +119,13 @@ function Home() {
 
                     {user && (
                       <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-                        <a type="button" class="btn btn-outline-dark" onClick={navigateToAdoptionPage}>Deseja adotar?</a>
-                        <a type="button" class="btn btn-outline-dark" onClick={navigateToAdoptionForm}>Deseja por para adoção?</a>
+                        <button type="button" className={styles.meubotao} onClick={navigateToAdoptionPage}>Deseja adotar?</button>
+                        <button type="button" className={styles.meubotao}  onClick={navigateToAdoptionForm}>Deseja cadastrar um animal?</button>
                       </div>)}
 
                   </div>
                 </div>
+              </div>
               </div>
         )}
 
