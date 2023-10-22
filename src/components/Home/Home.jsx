@@ -30,6 +30,9 @@ function Home() {
   const navigateToProfile = () => {
     navigate('/profile');
 }
+const navigateToAbout = () => {
+  navigate('/about');
+}
   const { user } = useAuthValue();
   const { logout } = useAuthetication();
 
@@ -46,6 +49,7 @@ function Home() {
                   <a className="navbar-brand">ZooNation</a>
                   <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
                     {user && (
                       <li className="nav-item">
                         <a class="nav-link active" aria-current="page" onClick={navigateToProfile} >Perfil</a>
@@ -57,6 +61,10 @@ function Home() {
                         <a class="nav-link active" aria-current="page" onClick={logout} >Sair</a>
                       </li>
                     )}
+
+                      <li className="nav-item">
+                        <a class="nav-link active" aria-current="page" onClick={navigateToAbout} >Sobre</a>
+                      </li>
                     </ul>
                   </div>
                 </div>

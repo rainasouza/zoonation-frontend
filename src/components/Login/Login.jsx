@@ -13,7 +13,9 @@ function Login(){
     navigate('/signup')
   }
   const navigateToHome = () => {
-    navigate('/home');}
+    navigate('/home');
+  }
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

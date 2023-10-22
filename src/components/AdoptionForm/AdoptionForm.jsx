@@ -29,6 +29,9 @@ const AdoptionForm = () => {
     const navigateToProfile = () => {
       navigate('/profile');
   }
+  const navigateToAbout = () =>{
+    navigate('/about');
+  }
     const navigateToAdopt = () => {
         navigate('/toadopt');}
   
@@ -44,7 +47,7 @@ const AdoptionForm = () => {
     }
 
     //cheking the values
-    if( !city || !contact || !image || !age){
+    if( !city || !contact || !image){
       setFormError("Preencha os campos de nome, idade, cidade e imagem do animal!");
     }
 
@@ -66,6 +69,7 @@ const AdoptionForm = () => {
 
     return (
       <div className={styles.bodyform} >
+        <div className={styles.nav}>
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container-fluid">
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,158 +86,119 @@ const AdoptionForm = () => {
                         <a class="nav-link active" aria-current="page" onClick={navigateToProfile} >Perfil</a>
                       </li>
                     )}
+                    <li className="nav-item">
+                      <a class="nav-link active" aria-current="page" onClick={navigateToAbout} >Sobre</a>
+                    </li>
 
               </ul>
             </div>
           </div>
         </nav>
+        </div>
 
-      <div className={styles.container}>
-        <div>
-          <form className={styles.form} onSubmit={handleSubmit}>
+        <br></br>
+        <br></br>
 
-            <label>
-              <span>
-              <div class="container text-center">
-            <div class="">
-              <label className="">Nome</label>
-              <input 
+        <div className={styles.box}> 
+        <br></br>
+      <form onSubmit={handleSubmit}>
+        <div className={styles.formulariocontainer}>
+          <label><b>Nome do animal:</b></label>
+          <input 
               type="text" 
-              className="form-control " 
               name="nameOfAnimal" 
-              placeholder="1 mês, 3 meses... (obrigatório)"
+              placeholder="Nome Do Animal"
               onChange={(e) => setName(e.target.value)}
               value={name}
+              defaultValue="indefinido"
               />
-            </div>
-            </div>
-              </span>
-            </label>
+          <div className={styles.info}>Caso não tenha, coloque indefinido.</div>
+        </div>
 
-        <div>
-          <label>
-            <span>
-            <div class="container text-center">
-          <div class=".container">
-            <label className="">Idade</label>
-            <input 
+        <div className={styles.formulariocontainer}>
+          <label><b>Idade:</b></label>
+          <input 
             type="text" 
-            className="form-control" 
             name="ageOfAnimal" 
-            placeholder="1 mês, 3 meses... (obrigatório)"
+            placeholder="1 mês, 3 meses..."
             onChange={(e) => setAge(e.target.value)}
             value={age}
             />
-          </div>
-          </div>
-            </span>
-          </label>
-          </div>
+        </div>
 
-        <div>
+        <div className={styles.formulariocontainer}>
+          <label><b>Raça:</b></label>
+          <input 
+              type="text" 
+              name="raceOfAnimal" 
+              placeholder="Indefinida, labrador..."
+              onChange={(e) => setRace(e.target.value)}
+              value={race}
+              />
+        </div>
 
-          <label>
-            <span>
-            <div class="container text-center">
-          <div class="container">
-            <label className=".col-md-6">Porte</label>
+        <div className={styles.formulariocontainer}>
+          <label><b>Porte:</b></label>
             <input 
             type="text" 
-            className="form-control col-md-4" 
             name="porteOfAnimal" 
-            placeholder="Opcional"
+            placeholder="Pequeno, médio ou grande."
             onChange={(e) => setPorte(e.target.value)}
             value={porte}
             />
-          </div>
-          </div>
-            </span>
-          </label>
+        </div>
 
-        <div>
-
-          <label>
-            <span>
-            <div class="container text-center">
-          <div class=".col-md-4">
-            <label className="">Cidade</label>
+        <div className={styles.formulariocontainer}>
+          <label><b>Cidade:</b></label>
             <input 
             type="text" 
-            className="form-control col-md-4" 
             name="cityOfAnimal" 
-            placeholder="Obrigatório"
+            placeholder="Cidade que o animal reside."
             onChange={(e) => setCity(e.target.value)}
             value={city}
             />
-          </div>
-          </div>
-            </span>
-          </label>
-          </div> 
-          </div>
+        </div>
 
-          <div>
-
-          <label>
-            <span>
-            <div class="container text-center">
-          <div class=".col-md-4">
-            <label className="">Contato</label>
-            <input 
+        <div className={styles.formulariocontainer}>
+          <label><b>Contato:</b></label>
+          <input 
             type="text" 
-            className="form-control col-md-4" 
             name="contactOfAnimal" 
-            placeholder="Obrigatório"
+            placeholder="Whatsapp ou Email"
             onChange={(e) => setContact(e.target.value)}
             value={contact}
             />
-          </div>
-          </div>
-            </span>
-          </label>
-          </div>
+          <div className={styles.info}>Forneça para melhor contato.</div>
+        </div>
 
-          <div>
-
-          <label>
-            <span>
-              <div class="container text-center">
-              <div class=".col-md-4">
-              <label className="">Imagem</label>
-                <input 
+        <div className={styles.formulariocontainer}>
+          <label><b>Imagem</b></label>
+          <input 
                   type="text" 
-                  className="form-control col-md-4" 
                   name="imageOfAnimal" 
-                  placeholder="Obrigatório (endereço de imagem)"
+                  placeholder="Obrigatório"
                   onChange={(e) => setImage(e.target.value)}
                   value={image}
                   />
-                </div>
-                </div>
-                  </span>
-                </label>
+          <div className={styles.info}>Coloque o endereço de imagem!</div>
+          </div>
+          <br></br>
+        
 
-          </div> 
-          <div>
-         
-
-          <div>
-          {!response.loading && <button className="btn btn-outline-dark">Enviar</button>}
+        <div>
+          
+          {!response.loading && <button className={styles.meubotao}>Enviar</button>}
           {response.loading &&(
             <button className="btn btn-outline-dark" disabled >
               Aguarde...
             </button>)}
           {formError && <p className="error">{formError}</p>}
           </div>
-
-          </div> 
-        </form>
-        </div>
-        </div>
-        </div>
+          </form>
+          
         
-
-        
+        </div>
+        </div>
         );
     };
     

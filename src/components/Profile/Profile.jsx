@@ -1,8 +1,7 @@
 import { useNavigate, Link, useActionData } from "react-router-dom";
 import "bootstrap/dist/js/bootstrap.min.js";
-import "./Profile.css"
+import styles from './Profile.module.css'
 import Signup from "../Signup/Signup";
-
 //hooks
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
@@ -34,38 +33,44 @@ const Profile = () =>{
 
     return(
       
-        <div>
-          
-
-<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="container-fluid">
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
+        <div className={styles.bodyprofile}>
+          <div className={styles.nav}>
+          <nav className="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
-            <a className="navbar-brand">ZooNation</a>
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <a className="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
-
-
-
+            <a class="navbar-brand">ZooNation</a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
+                </li>
+        
               </ul>
             </div>
           </div>
         </nav>
+        </div>
         <br></br>
+        <br></br>
+        <div className={styles.box}>
 
-
-            {animals && animals.map((animal) =>
-            <div key = {animal.id} className="wrapper">
-              <h3>{animal.name}</h3>
-
+        <br></br>
+        
+        <div >
+        <br></br>
+          {animals && animals.map((animal) =>
+              <div key = {animal.id} className={styles.wrapper}>
+                <h3><b>Animal Cadastrado: </b>{animal.name}</h3>
+                <button onClick={() => deleteDocument(animal.id)} className={styles.meubotao}> Deletar </button>
                 
-     
-            <button onClick={() => deleteDocument(animal.id)} className="btn btn-outline-dark"> Excluir </button>
-              
-            
-            </div>)};
+              </div>
+            )
+            }
+            </div>
+            <br></br>
+        </div>
         </div>
     )
 };

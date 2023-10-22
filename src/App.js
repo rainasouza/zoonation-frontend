@@ -7,6 +7,7 @@ import Signup from './components/Signup/Signup';
 import Login from './components/Login/Login';
 import PostDetail from './components/AdoptionPage/PostDetail/PostDetail';
 import Profile from './components/Profile/Profile';
+import About from './components/About/About';
 import{
   BrowserRouter as Router,
   Routes,
@@ -46,6 +47,8 @@ function App() {
             <Route path="signup" element={<Signup/>} />
             <Route path="login" element={<Login/>} />
             <Route path="profile" element={<Profile/>} />
+            <Route path="about" element={<About/>} />
+
 
 
 

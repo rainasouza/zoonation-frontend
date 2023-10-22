@@ -32,12 +32,12 @@ const PostDetail = ({animal}) => {
                   </div>
                   <div class="modal-body">
 
-                  <p> Me chamo: {animal.name}</p>
-                  <p> Minha idade aproximadamente: {animal.age}</p> 
-                  <p> Minha raça:{animal.race}</p>
-                  <p> Meu porte: {animal.porte}</p>
-                  <p> Onde resido: {animal.city}</p>
-                  <p> Entre em contato através de: {animal.contact}</p>
+                  <p><b> Me chamo: </b>{animal.name}</p>
+                  <p><b> Minha idade aproximadamente: </b>{animal.age}</p> 
+                  <p><b>Minha raça:</b>{animal.race}</p>
+                  <p><b>Meu porte: </b>{animal.porte}</p>
+                  <p><b>Onde resido: </b>{animal.city}</p>
+                  <p><b>Entre em contato através de: </b>{animal.contact}</p>
 
                   </div>
                   <div class="modal-footer">

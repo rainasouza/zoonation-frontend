@@ -16,6 +16,10 @@ const AdoptionPage = () => {
 
     const navigate = useNavigate();
 
+    const navigateToAbout = () =>{
+      navigate('/about');
+    }
+
     const navigateToHome = () => {
         navigate('/home');}
 
@@ -50,6 +54,10 @@ const AdoptionPage = () => {
                         <a class="nav-link active" aria-current="page" onClick={navigateToProfile} >Perfil</a>
                       </li>
                     )}
+
+                    <li className="nav-item">
+                        <a class="nav-link active" aria-current="page" onClick={navigateToAbout} >Sobre</a>
+                      </li>
 
 
 

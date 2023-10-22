@@ -22,16 +22,17 @@ body{
     box-shadow: 3cm;
   }
 
-  .meubotao:hover {
-    background-color: #28472c; /* Cor alterada ao passar o mouse (#0f1e11) */
-  }
-
+.meubotao:hover {
+  background-color: #28472c; /* Cor alterada ao passar o mouse (#0f1e11) */
+}
 
 .box{
   box-shadow: rgba(0, 0, 0, 0.56) 10px 22px 70px 4px;    
   border-radius: 110px;
   background-position-x: center;
   background-color: rgba(218, 161, 126, 0.29); /* Cor escura com transparência */
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .nav{

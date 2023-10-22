@@ -1,11 +1,10 @@
 .bodyform{
-    text-shadow: 0.3em 0.3em 0.9em rgb(221, 125, 80);
-    text-rendering: optimizeSpeed;
-    background-size: auto;
-    background-attachment: fixed;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #14291e;
-    text-align: center;
+  text-shadow: 0.1em 0.1em 0.9em rgba(0, 0, 0, 0.542);
+  text-rendering: optimizeSpeed;
+  background-size: auto;
+  background-attachment: fixed;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #122e20d6;
 }
 
 .meubotao {
@@ -22,21 +21,58 @@
     background-color: #28472c; /* Cor alterada ao passar o mouse (#0f1e11) */
   }
 
-  .container {
-    display: flex;
-    justify-content: center;
+  .box{
+    box-shadow: rgba(0, 0, 0, 0.56) 10px 22px 70px 4px;    
+    border-radius: 110px;
+    background-position-x: center;
+    background-color: rgba(218, 161, 126, 0.29); /* Cor escura com transparência */
+    margin-left: 30px;
+    margin-right: 30px;
     align-items: center;
-    height: 100vh;
+    text-align: center;
   }
   
-  .form {
-    display: flex;
-    flex-direction: column;
+  .nav{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    background-position-x: center;
+    background-color: rgba(237, 199, 156, 0.442); /* Cor escura com transparência */
   }
+
+
+
+
   
-  input {
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 100%;
-  }
-  
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+
+
+input {
+  padding: 10px;
+  border: 1px solid #053015;
+  border-radius: 4px;
+}
+
+.info {
+  font-size: 13px;
+  color: #022617;
+  margin-top: 4px;
+}
+
+.formulariocontainer {
+  max-width: 800px; /* Aumentei a largura para acomodar três colunas */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Três colunas com largura igual */
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
