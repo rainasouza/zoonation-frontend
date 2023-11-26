@@ -157,6 +157,8 @@ const AdoptionForm = () => {
             onChange={(e) => setCity(e.target.value)}
             value={city}
             />
+            <div className={styles.info}>*Obrigatório.</div>
+
         </div>
 
         <div className={styles.formulariocontainer}>
@@ -164,11 +166,11 @@ const AdoptionForm = () => {
           <input 
             type="text" 
             name="contactOfAnimal" 
-            placeholder="Whatsapp ou Email"
+            placeholder="Whatsapp ou Email."
             onChange={(e) => setContact(e.target.value)}
             value={contact}
             />
-          <div className={styles.info}>Forneça para melhor contato.</div>
+          <div className={styles.info}>*Obrigatório.</div>
         </div>
 
         <div className={styles.formulariocontainer}>
@@ -176,11 +178,11 @@ const AdoptionForm = () => {
           <input 
                   type="text" 
                   name="imageOfAnimal" 
-                  placeholder="Obrigatório"
+                  placeholder="Endereço de imagem!"
                   onChange={(e) => setImage(e.target.value)}
                   value={image}
                   />
-          <div className={styles.info}>Coloque o endereço de imagem!</div>
+          <div className={styles.info}>*Obrigatório</div>
           </div>
           <br></br>
         

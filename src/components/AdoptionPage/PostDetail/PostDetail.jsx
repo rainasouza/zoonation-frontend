@@ -34,7 +34,7 @@ const PostDetail = ({animal}) => {
 
                   <p><b> Me chamo: </b>{animal.name}</p>
                   <p><b> Minha idade aproximadamente: </b>{animal.age}</p> 
-                  <p><b>Minha raça:</b>{animal.race}</p>
+                  <p><b>Minha raça: </b>{animal.race}</p>
                   <p><b>Meu porte: </b>{animal.porte}</p>
                   <p><b>Onde resido: </b>{animal.city}</p>
                   <p><b>Entre em contato através de: </b>{animal.contact}</p>

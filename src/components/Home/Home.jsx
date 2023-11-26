@@ -95,9 +95,7 @@ const navigateToAbout = () => {
           </div>
           </div>
           <br></br>
-
         </div>)}
-
   
         {user &&(
           <div className={styles.box}>
@@ -136,8 +134,6 @@ const navigateToAbout = () => {
               </div>
               </div>
         )}
-
-
 
     </div>
     
