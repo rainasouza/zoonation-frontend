@@ -36,8 +36,6 @@ function Login(){
 
     const res = await login(user);
     console.log(res)
-
-
    
 } 
     useEffect(() => {

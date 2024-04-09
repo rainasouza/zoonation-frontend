@@ -6,7 +6,6 @@
 
 .bodyabout{
     text-shadow: 0.1em 0.1em 0.9em rgba(0, 0, 0, 0.542);
-    text-rendering: optimizeSpeed;
     background-size: auto;
     background-attachment: fixed;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

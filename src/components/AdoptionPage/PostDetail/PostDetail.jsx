@@ -28,16 +28,15 @@ const PostDetail = ({animal}) => {
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id={animal.id}> Cadastrado por: {animal.createdBy}   </h1>
+                    <h1 class="modal-title fs-5" id={animal.id}> <b> Me chamo: </b>{animal.name}   </h1>
                   </div>
                   <div class="modal-body">
-
-                  <p><b> Me chamo: </b>{animal.name}</p>
                   <p><b> Minha idade aproximadamente: </b>{animal.age}</p> 
                   <p><b>Minha raça: </b>{animal.race}</p>
                   <p><b>Meu porte: </b>{animal.porte}</p>
                   <p><b>Onde resido: </b>{animal.city}</p>
                   <p><b>Entre em contato através de: </b>{animal.contact}</p>
+                  <p><b>Cadastrado por: </b>{animal.createdBy}</p>
 
                   </div>
                   <div class="modal-footer">

@@ -1,4 +1,3 @@
-import { db } from '../firebase/config';
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -44,9 +43,26 @@ export const useAuthetication = () => {
         } catch (error) {
             console.log(error.message)
             console.log(typeof error.message)
+            let systemErrorMessage;
+            if(error.message.includes("invalid-email")){
+                systemErrorMessage = "O email é inválido."
+            }
+            else if (error.message.includes("week-password")){
+                systemErrorMessage = "A senha não segue o formato pedido."
+            }
+            else if (error.message.includes("email-already-in-use")){
+                systemErrorMessage = "O gmail já está cadastrado, tente outro."
+            }
 
-            setLoading(false)
+            else{
+                systemErrorMessage = "Preencha os campos com valores válidos."
+            }
+
+
+
+           setError(systemErrorMessage);
         }
+        setLoading(false);
     }
 
     const logout = () => {
@@ -65,6 +81,16 @@ export const useAuthetication = () => {
         } catch (error){
             console.log(error.message)
             console.log(typeof error.message)
+
+            let systemErrorMessage;
+            if(error.message.includes("wrong-password")){
+                systemErrorMessage = "Senha errada."
+            }
+            else if (error.message.includes("user-not-found")){
+                systemErrorMessage = "Gmail não cadastrado."
+            }
+
+            setError(systemErrorMessage);
         }
         setLoading(false);
     }

@@ -5,7 +5,6 @@ import AdoptionPage from './components/AdoptionPage/AdoptionPage';
 import Home from './components/Home/Home';
 import Signup from './components/Signup/Signup';
 import Login from './components/Login/Login';
-import PostDetail from './components/AdoptionPage/PostDetail/PostDetail';
 import Profile from './components/Profile/Profile';
 import About from './components/About/About';
 import{

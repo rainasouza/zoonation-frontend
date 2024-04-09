@@ -1,3 +1,26 @@
+nav{
+  background-position-x: center;
+  background-color: #eaa3a3d6;
+  text-decoration-color: #000000;
+  align-items: normal;
+}
+body{
+  background-image: url("backgroundimage.png");
+
+
+}
+
+  
+
+
+
+
+
+
+
+
+
+
 
 .App-logo {
   height: 40vmin;

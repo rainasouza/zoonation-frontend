@@ -38,11 +38,11 @@ function Signup(){
     const res = await createUser(user)
     console.log(res);
 } 
-useEffect(() => {
-  if (authError){
-    setError(authError);
-  }
-}, [authError])
+    useEffect(() => {
+      if (authError){
+        setError(authError);
+      }
+    }, [authError])
 
     return(
       <div className={styles.bodysignup}>

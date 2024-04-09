@@ -1,7 +1,6 @@
-import { useNavigate, Link, useActionData } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/js/bootstrap.min.js";
 import styles from './Profile.module.css'
-import Signup from "../Signup/Signup";
 //hooks
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
@@ -16,12 +15,7 @@ const Profile = () =>{
     const navigateToHome = () => {
         navigate('/home');
     }
-    const navigateToProfile = () => {
-        navigate('/profile');
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
+
 
     const {deleteDocument} = useDeleteDocument("animals");
 
@@ -29,7 +23,7 @@ const Profile = () =>{
 
     const {user} = useAuthValue();
     const uid = user.uid;
-    const {documents: animals, loading} = useFetchDocuments("animals", null,uid);
+    const {documents: animals} = useFetchDocuments("animals",uid);
 
     return(
       
@@ -60,6 +54,7 @@ const Profile = () =>{
         
         <div >
         <br></br>
+     
           {animals && animals.map((animal) =>
               <div key = {animal.id} className={styles.wrapper}>
                 <h3><b>Animal Cadastrado: </b>{animal.name}</h3>

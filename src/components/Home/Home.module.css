@@ -1,17 +1,8 @@
-body{
-    background-image: url("background.png");
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #122e20d6;
+.body{
+  display: flex;
+  justify-content: center;
+  text-shadow: rgba(0, 0, 7, 0.70) 10px 22px 70px 4px;  
 }
-.bodyhome{
-    text-shadow: 0.1em 0.1em 0.9em rgba(0, 0, 0, 0.542);
-    text-rendering: optimizeSpeed;
-    background-size: auto;
-    background-attachment: fixed;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #122e20d6;
-}
-
 .meubotao {
     background-color: #142918; /* Cor desejada (#142918) */
     color: white; /* Cor do texto */
@@ -26,21 +17,24 @@ body{
   background-color: #28472c; /* Cor alterada ao passar o mouse (#0f1e11) */
 }
 
+
 .box{
-  box-shadow: rgba(0, 0, 0, 0.56) 10px 22px 70px 4px;    
+  display: flex;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 7, 0.70) 10px 22px 70px 4px;    
   border-radius: 110px;
-  background-position-x: center;
-  background-color: rgba(218, 161, 126, 0.29); /* Cor escura com transparência */
-  margin-left: 10px;
-  margin-right: 10px;
+  background-color: rgba(187, 143, 116, 0.29); /* Cor escura com transparência */
+
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+
+  
+  
 }
 
-.nav{
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  background-position-x: center;
-  background-color: rgba(237, 199, 156, 0.442); /* Cor escura com transparência */
-}
-  
+
 
 
 

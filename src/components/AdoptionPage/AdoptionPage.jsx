@@ -1,11 +1,9 @@
 import React from "react";
-import {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { useNavigate, Link } from "react-router-dom";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import PostDetail from "./PostDetail/PostDetail";
-import { useAuthetication } from "../../hooks/useAuthetication";
 import { useAuthValue } from "../../context/AuthContext";
 import styles from './AdoptionPage.module.css';
 
@@ -23,13 +21,12 @@ const AdoptionPage = () => {
     const navigateToHome = () => {
         navigate('/home');}
 
-    const { logout } = useAuthetication();
 
     const navigateToProfile = () => {
       navigate('/profile');
   }
 
-    const {documents: animals, loading} = useFetchDocuments("animals");
+    const {documents: animals} = useFetchDocuments("animals");
 
     return(
       <div>
@@ -58,9 +55,6 @@ const AdoptionPage = () => {
                     <li className="nav-item">
                         <a class="nav-link active" aria-current="page" onClick={navigateToAbout} >Sobre</a>
                       </li>
-
-
-
               </ul>
             </div>
           </div>

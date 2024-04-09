@@ -98,6 +98,7 @@ const navigateToAbout = () => {
         </div>)}
   
         {user &&(
+          <div className={styles.body}>
           <div className={styles.box}>
               <div class="container col-xxl-8 px-4 py-5">
                 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -128,7 +129,7 @@ const navigateToAbout = () => {
                         <button type="button" className={styles.meubotao} onClick={navigateToAdoptionPage}>Deseja adotar?</button>
                         <button type="button" className={styles.meubotao}  onClick={navigateToAdoptionForm}>Deseja cadastrar um animal?</button>
                       </div>)}
-
+                  </div>    
                   </div>
                 </div>
               </div>
