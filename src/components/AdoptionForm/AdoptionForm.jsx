@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
-import styles from './AdoptionForm.module.css';
+import styles from '../Home/Home.module.css';
 import "bootstrap/dist/js/bootstrap.min.js";
 import { useAuthetication } from "../../hooks/useAuthetication";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
@@ -18,6 +18,7 @@ const AdoptionForm = () => {
     const [image, setImage] = useState("");
     const [contact, setContact] = useState("");
     const [formError, setFormError] = useState("");
+    const [url, setUrl] = useState("");
     const {user} = useAuthValue();
     const {insertDocument, response} = useInsertDocument("animals");
 
@@ -42,16 +43,25 @@ const AdoptionForm = () => {
     //validate image URL
     try{
       new URL(image);
-    } catch (error){
-      setFormError("A imagem precisa ser uma URL.");
-    }
+    } catch (url){
+      console.log(url.message)
+      console.log(typeof url.message)
 
-    //cheking the values
-    if( !city || !contact || !image){
-      setFormError("Preencha os campos de nome, idade, cidade e imagem do animal!");
-    }
+      let systemUrlMessage;
+      if(url.message.includes("Invalid URL")){
+          systemUrlMessage = "Use uma URL válida."
+      }
+      setUrl(systemUrlMessage);
+      return;
+  }
 
-    if(formError) return;
+    if (
+      name.trim() === '' ||
+      contact.trim() === '' 
+    ) {
+      setFormError('Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
 
     insertDocument({
       name,
@@ -68,7 +78,7 @@ const AdoptionForm = () => {
     };
 
     return (
-      <div className={styles.bodyform} >
+      <div>
         <div className={styles.nav}>
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container-fluid">
@@ -86,6 +96,11 @@ const AdoptionForm = () => {
                         <a class="nav-link active" aria-current="page" onClick={navigateToProfile} >Perfil</a>
                       </li>
                     )}
+                {user && (
+                      <li className="nav-item">
+                        <a class="nav-link active" aria-current="page" onClick={logout} >Sair</a>
+                      </li>
+                    )}
                     <li className="nav-item">
                       <a class="nav-link active" aria-current="page" onClick={navigateToAbout} >Sobre</a>
                     </li>
@@ -95,10 +110,10 @@ const AdoptionForm = () => {
           </div>
         </nav>
         </div>
-
+      
         <br></br>
         <br></br>
-
+        <div className={styles.body}>
         <div className={styles.box}> 
         <br></br>
       <form onSubmit={handleSubmit}>
@@ -112,8 +127,10 @@ const AdoptionForm = () => {
               value={name}
               defaultValue="indefinido"
               />
-          <div className={styles.info}>Caso não tenha, coloque indefinido.</div>
+          <div className={styles.info}>Caso não tenha, coloque indefinido.<p>*Obrigatório</p></div>
         </div>
+        <br></br>
+
 
         <div className={styles.formulariocontainer}>
           <label><b>Idade:</b></label>
@@ -125,6 +142,7 @@ const AdoptionForm = () => {
             value={age}
             />
         </div>
+        <br></br>
 
         <div className={styles.formulariocontainer}>
           <label><b>Raça:</b></label>
@@ -136,6 +154,8 @@ const AdoptionForm = () => {
               value={race}
               />
         </div>
+        <br></br>
+
 
         <div className={styles.formulariocontainer}>
           <label><b>Porte:</b></label>
@@ -147,6 +167,8 @@ const AdoptionForm = () => {
             value={porte}
             />
         </div>
+        <br></br>
+
 
         <div className={styles.formulariocontainer}>
           <label><b>Cidade:</b></label>
@@ -158,8 +180,9 @@ const AdoptionForm = () => {
             value={city}
             />
             <div className={styles.info}>*Obrigatório.</div>
-
         </div>
+        <br></br>
+
 
         <div className={styles.formulariocontainer}>
           <label><b>Contato:</b></label>
@@ -172,6 +195,8 @@ const AdoptionForm = () => {
             />
           <div className={styles.info}>*Obrigatório.</div>
         </div>
+        <br></br>
+
 
         <div className={styles.formulariocontainer}>
           <label><b>Imagem</b></label>
@@ -188,18 +213,29 @@ const AdoptionForm = () => {
         
 
         <div>
-          
+
           {!response.loading && <button className={styles.meubotao}>Enviar</button>}
+          
+
+
           {response.loading &&(
             <button className="btn btn-outline-dark" disabled >
               Aguarde...
             </button>)}
+          {url && <p className="error">{url}</p>}
           {formError && <p className="error">{formError}</p>}
+          
+          
           </div>
           </form>
+          <br></br>
           
         
         </div>
+
+
+        </div>
+        <br></br>
         </div>
         );
     };

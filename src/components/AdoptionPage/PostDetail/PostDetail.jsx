@@ -1,8 +1,5 @@
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import React from "react";
-import { useState } from "react";
-import styles from './PostDetail.module.css'
+import styles from '../../Home/Home.module.css'
 
 
 const PostDetail = ({animal}) => {
@@ -12,11 +9,13 @@ const PostDetail = ({animal}) => {
 
         <div className={styles.images}>
           <br></br>
-
             <img src = {animal.image} alt={animal.name} />
-            <h2>{animal.name}</h2>
-            <p>{animal.age}</p>
-  
+            <br></br>
+            
+            <h1>{animal.name}</h1>
+            
+            <h4>{animal.age}</h4>
+            
       
             <button type="button" className={styles.meubotao} data-bs-toggle="modal" data-bs-target={`#${animal.id}`}>
               Informações
@@ -40,17 +39,16 @@ const PostDetail = ({animal}) => {
 
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" className={styles.meubotao} data-bs-dismiss="modal">Fechar</button>
                   </div>
                 </div>
               </div>
             </div>
         </div>
-        </div>
-        <br></br>
-        <br></br>
 
         </div>
+        </div>
+        
 
       
         

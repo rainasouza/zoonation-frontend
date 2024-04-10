@@ -1,14 +1,16 @@
 nav{
-  background-position-x: center;
-  background-color: #eaa3a3d6;
-  text-decoration-color: #000000;
-  align-items: normal;
+  font-family: "Quicksand", sans-serif;
+  background-color: rgb(236, 179, 179); /* Cor escura com transparência */
+  
+  
 }
 body{
   background-image: url("backgroundimage.png");
-
-
+  color: rgb(92, 53, 61);
 }
+
+
+
 
   
 

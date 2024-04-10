@@ -24,9 +24,7 @@ function Home() {
   const navigateToLogin = () => {
     navigate('/login')
   }
-  const navigateToHome = () => {
-    navigate('/home');
-  }
+
   const navigateToProfile = () => {
     navigate('/profile');
 }
@@ -38,7 +36,6 @@ const navigateToAbout = () => {
 
 
   return (
-    <div className={styles.bodyhome}>
       <div className={styles.nav}>
       <nav className="navbar navbar-expand-lg navbar-light"  >
         
@@ -69,7 +66,6 @@ const navigateToAbout = () => {
                   </div>
                 </div>
               </nav>
-              </div>
               <br></br>
               <br></br>
 
@@ -78,6 +74,7 @@ const navigateToAbout = () => {
         
 
       {!user && (
+        <div className={styles.body}>
         <div className={styles.box}>
           <div class="px-4 pt-5 my-5 text-center ">
           <h1 class="display-4 fw-bold text-body-emphasis">ZooNation</h1>
@@ -95,6 +92,7 @@ const navigateToAbout = () => {
           </div>
           </div>
           <br></br>
+        </div>
         </div>)}
   
         {user &&(
@@ -135,8 +133,7 @@ const navigateToAbout = () => {
               </div>
               </div>
         )}
-
-    </div>
+</div>
     
   )
 }

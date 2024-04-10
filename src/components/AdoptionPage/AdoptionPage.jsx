@@ -1,11 +1,11 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import PostDetail from "./PostDetail/PostDetail";
 import { useAuthValue } from "../../context/AuthContext";
-import styles from './AdoptionPage.module.css';
+import styles from '../Home/Home.module.css'
 
 
 const AdoptionPage = () => {
@@ -31,7 +31,6 @@ const AdoptionPage = () => {
     return(
       <div>
         
-          <div className={styles.bodyadpt}>
           <div className={styles.nav}>
             <div>
             <nav className="navbar navbar-expand-lg navbar-light" >
@@ -60,15 +59,17 @@ const AdoptionPage = () => {
           </div>
         </nav>
             </div>
-            </div>
 
             
             <br></br>
             <br></br>
+            <div >
         {Array.isArray(animals) && animals.map((animal) =><PostDetail key={animal.id} animal={animal}></PostDetail>)}
+        </div>
+        <br></br>
+        </div>
         <br></br>
         
-        </div>
         </div>
             
     )

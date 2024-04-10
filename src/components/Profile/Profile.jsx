@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/js/bootstrap.min.js";
-import styles from './Profile.module.css'
+import styles from '../Home/Home.module.css';
 //hooks
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useDeleteDocument } from "../../hooks/useDeleteDocument";
+import { useAuthetication } from "../../hooks/useAuthetication";
 
 
 
@@ -15,6 +16,7 @@ const Profile = () =>{
     const navigateToHome = () => {
         navigate('/home');
     }
+    const { logout } = useAuthetication();
 
 
     const {deleteDocument} = useDeleteDocument("animals");
@@ -26,8 +28,7 @@ const Profile = () =>{
     const {documents: animals} = useFetchDocuments("animals",uid);
 
     return(
-      
-        <div className={styles.bodyprofile}>
+      <div>
           <div className={styles.nav}>
           <nav className="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
@@ -40,32 +41,62 @@ const Profile = () =>{
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
                 </li>
-        
+                {user && (
+                      <li className="nav-item">
+                        <a class="nav-link active" aria-current="page" onClick={logout} >Sair</a>
+                      </li>
+                    )}
+
               </ul>
             </div>
+
           </div>
         </nav>
-        </div>
-        <br></br>
-        <br></br>
-        <div className={styles.box}>
 
-        <br></br>
+        <br></br><br></br>
+        </div>
+
         
         <div >
         <br></br>
      
           {animals && animals.map((animal) =>
-              <div key = {animal.id} className={styles.wrapper}>
-                <h3><b>Animal Cadastrado: </b>{animal.name}</h3>
-                <button onClick={() => deleteDocument(animal.id)} className={styles.meubotao}> Deletar </button>
-                
+          <div className={styles.body}>
+
+            <div key = {animal.id} className={styles.box}>
+            <h2><b>Animal Cadastrado: </b>{animal.name}</h2>
+          
+                <button type="button" className={styles.meubotao} data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Deletar
+                </button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Apagar Postagem</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Você tem certeza que deseja apagar a postagem? Ao clicar no botão, a imagem e as informações serão permanentemente deletadas. 
+                  </div>
+                  <div class="modal-footer">
+                    <button onClick={() => deleteDocument(animal.id)} className={styles.meubotao} type="button" data-bs-dismiss="modal" aria-label="Close"> Deletar </button>
+                    
+                  </div>
+                </div>
               </div>
+            </div>
+
+              </div>
+              </div>
+              
             )
             }
+          
+            <br></br>
             </div>
             <br></br>
-        </div>
         </div>
     )
 };
