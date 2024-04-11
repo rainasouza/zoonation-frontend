@@ -21,8 +21,6 @@ const Profile = () =>{
 
     const {deleteDocument} = useDeleteDocument("animals");
 
-
-
     const {user} = useAuthValue();
     const uid = user.uid;
     const {documents: animals} = useFetchDocuments("animals",uid);
@@ -41,11 +39,7 @@ const Profile = () =>{
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" onClick={navigateToHome} >Home</a>
                 </li>
-                {user && (
-                      <li className="nav-item">
-                        <a class="nav-link active" aria-current="page" onClick={logout} >Sair</a>
-                      </li>
-                    )}
+
 
               </ul>
             </div>

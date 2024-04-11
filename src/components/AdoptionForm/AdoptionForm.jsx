@@ -20,12 +20,13 @@ const AdoptionForm = () => {
     const [formError, setFormError] = useState("");
     const [url, setUrl] = useState("");
     const {user} = useAuthValue();
+    const { logout } = useAuthetication();
+
     const {insertDocument, response} = useInsertDocument("animals");
 
     const navigateToHome = () => {
         navigate('/home');}
 
-    const { logout } = useAuthetication();
 
     const navigateToProfile = () => {
       navigate('/profile');
@@ -96,11 +97,7 @@ const AdoptionForm = () => {
                         <a class="nav-link active" aria-current="page" onClick={navigateToProfile} >Perfil</a>
                       </li>
                     )}
-                {user && (
-                      <li className="nav-item">
-                        <a class="nav-link active" aria-current="page" onClick={logout} >Sair</a>
-                      </li>
-                    )}
+
                     <li className="nav-item">
                       <a class="nav-link active" aria-current="page" onClick={navigateToAbout} >Sobre</a>
                     </li>
@@ -212,18 +209,18 @@ const AdoptionForm = () => {
           <br></br>
         
 
-        <div>
+        <div >
 
-          {!response.loading && <button className={styles.meubotao}>Enviar</button>}
-          
-
+          {!response.loading && <button className={styles.mbform}>Enviar</button>}
 
           {response.loading &&(
             <button className="btn btn-outline-dark" disabled >
               Aguarde...
             </button>)}
-          {url && <p className="error">{url}</p>}
-          {formError && <p className="error">{formError}</p>}
+          {url && <p className={styles.error}>{url}</p>}
+          {formError && <p className={styles.error}>{formError}</p>}
+          <p className={styles.error}> Quanto mais informações você preencher, melhor!</p>
+
           
           
           </div>

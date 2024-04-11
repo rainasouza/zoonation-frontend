@@ -93,7 +93,7 @@ function Login(){
 
                   {loading && !user && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
                   {user && !loading && navigateToHome()}
-                  {error && <p className="error">{error}</p>}
+                  {error && <p className={styles.error}>{error}</p>}
 
                   <hr class="my-4"/>
                 </form>

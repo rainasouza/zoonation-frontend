@@ -74,7 +74,7 @@ function Signup(){
         <p class="col-lg-10 fs-4"> e tenha acesso aos pets! </p>
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 bg-body-tertiary" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
 
           <div class="form-floating mb-3">
             <input type="text" class="form-control" name = "displayName" value={displayName} onChange={(e) => setDisplayName(e.target.value)} required placeholder="Nome do Usuário"/>
@@ -96,18 +96,18 @@ function Signup(){
             <label for="floatingInput">Confirme sua senha</label>
           </div>
 
-          <div class="col-12">
           {!loading && !user && <button className={styles.meubotao} >Criar Conta</button>}
           {loading && !user && <button className="btn btn-outline-dark" disabled >Aguarde...</button>}
           {user && !loading && navigateToHome()}
-          {error && <p className="error">{error}</p>}
-          </div>
+          <br></br>
+          {error && <p className={styles.error}>{error}</p>}
         </form>
       </div>
       </div>
       </div>
       </div>
       </div>
+      
       </div>
     )
 }
