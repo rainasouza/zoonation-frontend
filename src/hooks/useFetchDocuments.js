@@ -17,7 +17,7 @@ export const useFetchDocuments = (docCollection, uid = null) => {
             setLoading(true);
 
             const collectionRef = await collection (db, docCollection)
-
+  
             try {
 
                 let q;
