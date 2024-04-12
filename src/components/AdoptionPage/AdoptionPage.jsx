@@ -59,17 +59,23 @@ const AdoptionPage = () => {
           </div>
         </nav>
             </div>
-
-            
             <br></br>
             <br></br>
             <div >
-        {Array.isArray(animals) && animals.map((animal) =><PostDetail key={animal.id} animal={animal}></PostDetail>)}
+  
+
+            
+
+
+          {Array.isArray(animals) && animals.map(animal => (
+            <PostDetail key={animal.id} animal={animal} />
+          ))}
+
         </div>
         <br></br>
         </div>
         <br></br>
-        
+
         </div>
             
     )

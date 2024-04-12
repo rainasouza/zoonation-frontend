@@ -45,13 +45,10 @@ export const useFetchDocuments = (docCollection, uid = null) => {
                 });
                 setLoading(false);
 
-
-
             } catch(error){
                 console.log(error);
                 setError(error.message);
                 setLoading(false);
-
             }
         }
         loadData();
@@ -60,6 +57,4 @@ export const useFetchDocuments = (docCollection, uid = null) => {
 
     useEffect(() => {setCancelled(true);}, [] );
     return {documents, loading, error};
-
-
 };

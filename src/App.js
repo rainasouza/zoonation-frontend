@@ -15,6 +15,7 @@ import{
 import { onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { useAuthetication } from './hooks/useAuthetication';
+import AnimalImage from './components/AdoptionForm/AnimalImage';
 
 function App() {
   const [user, setUser] = useState(undefined);
@@ -47,6 +48,8 @@ function App() {
             <Route path="login" element={<Login/>} />
             <Route path="profile" element={<Profile/>} />
             <Route path="about" element={<About/>} />
+            <Route path="img-form" element={<AnimalImage/>} />
+
 
 
 
