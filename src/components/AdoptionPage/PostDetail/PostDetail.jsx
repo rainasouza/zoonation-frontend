@@ -1,23 +1,33 @@
 import React from "react";
 import styles from '../../Home/Home.module.css'
+import AnimalImage from "../../AdoptionForm/AnimalImage";
+import useFetchImages from "../../../hooks/useFetchImages";
 
 const PostDetail = ({ animal}) => {
+  const { images} = useFetchImages();
 
   return (
     <div className={styles.body}>
       <div className={styles.images}>
         <br></br>
-        <img src={animal.image} alt={animal.name}/>
+    
+        <div>
+            {Array.isArray(images) && images.map((imageUrl, index) => (
+                <img key={index} src={imageUrl} alt={`Image ${index}`} />
+            ))}
+
         <br></br>
+
+
         <h1>{animal.name}</h1>
         <h4>{animal.age}</h4>
+
         <button
           type="button"
           className={styles.meubotao}
           data-bs-toggle="modal"
-          data-bs-target={`#${animal.id}`}
-        >
-          Informações
+          data-bs-target={`#${animal.id}`}>
+          Informações         
         </button>
         <br></br>
         <br></br>
@@ -44,6 +54,13 @@ const PostDetail = ({ animal}) => {
           </div>
         </div>
       </div>
+
+            
+        </div>
+
+        
+
+
     </div>
   );
 };

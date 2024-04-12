@@ -51,6 +51,8 @@ export const useDeleteDocument = (docCollection) => {
         }
     };
 
+    
+
 
     useEffect(()=> {
         return () => setCancelled(true);

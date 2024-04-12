@@ -6,9 +6,11 @@ import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import PostDetail from "./PostDetail/PostDetail";
 import { useAuthValue } from "../../context/AuthContext";
 import styles from '../Home/Home.module.css'
+import useFetchImages from "../../hooks/useFetchImages";
 
 
 const AdoptionPage = () => {
+  const { images } = useFetchImages();
 
    const {user} = useAuthValue();
 
@@ -61,20 +63,17 @@ const AdoptionPage = () => {
             </div>
             <br></br>
             <br></br>
-            <div >
-  
 
-            
+        <br></br>
+        </div>
+        <br></br>
 
 
-          {Array.isArray(animals) && animals.map(animal => (
+
+{Array.isArray(animals) && animals.map(animal => (
             <PostDetail key={animal.id} animal={animal} />
           ))}
-
-        </div>
-        <br></br>
-        </div>
-        <br></br>
+  
 
         </div>
             

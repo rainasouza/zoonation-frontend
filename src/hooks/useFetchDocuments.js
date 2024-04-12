@@ -1,4 +1,4 @@
-import{db} from "../firebase/config"
+import{db, imageDb} from "../firebase/config"
 import { useState, useEffect } from "react"
 import { collection, query, orderBy, where, onSnapshot } from "firebase/firestore"
 

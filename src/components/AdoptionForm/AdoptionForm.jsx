@@ -3,13 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
 import styles from '../Home/Home.module.css';
 import "bootstrap/dist/js/bootstrap.min.js";
-import { useAuthetication } from "../../hooks/useAuthetication";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import {useAuthValue} from "../../context/AuthContext";
-import { imageDb } from "../../firebase/config";
-import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
-import { v4 as uuidv4 } from 'uuid';
-uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
+
 
 const AdoptionForm = () => {
     const navigate = useNavigate();
@@ -18,50 +14,11 @@ const AdoptionForm = () => {
     const [race, setRace] = useState("");
     const [porte, setPorte] = useState("");
     const [city, setCity] = useState("");
-    const [image, setImage] = useState("");
     const [contact, setContact] = useState("");
     const [formError, setFormError] = useState("");
     const [url, setUrl] = useState("");
     const {user} = useAuthValue();
     const {insertDocument, response} = useInsertDocument("animals");
-
-    const [img,setImg] =useState('')
-    const [imgUrl,setImgUrl] =useState([])
-
-    const handleClick = () => {
-      if (img !== null) {
-          const imgRef = ref(imageDb, `files/${uuidv4()}`);
-          uploadBytes(imgRef, img).then(snapshot => {
-              getDownloadURL(snapshot.ref).then(url => {
-                  setImgUrl(prevUrls => [...prevUrls, url]);
-              });
-          });
-      }
-  };
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const result = await listAll(ref(imageDb, "files"));
-        const urls = await Promise.all(result.items.map(async (itemRef) => {
-          const url = await getDownloadURL(itemRef);
-          return url;
-        }));
-        setImgUrl(urls);
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      }
-    };
-
-    fetchImages();
-  }, []);
-
-//useEffect com o Promise.all 
-//para esperar todas as URLs serem recuperadas antes de atualizar o estado imgUrl. 
-//cada URL de imagem é adicionada apenas uma vez ao array imgUrl, 
-//evitando a duplicação das imagens.
-
-
 
     const navigateToHome = () => {
         navigate('/home');}
@@ -71,9 +28,10 @@ const AdoptionForm = () => {
     const navigateToAbout = () =>{
       navigate('/about');
     }
-    const navigateToAdopt = () => {
-        navigate('/toadopt');
-      }
+
+    const navigateToImage = () => {
+      navigate('/img-form');
+    }
     
     
     const handleSubmit = (e) => {
@@ -81,21 +39,20 @@ const AdoptionForm = () => {
       setFormError("");
       
     //validate image URL
-    try{
-      new URL(image);
-    } catch (url){
-      console.log(url.message)
-      console.log(typeof url.message)
+ //   try{
+    //  new URL(image);
+   // } catch (url){
+    //  console.log(url.message)
+    //  console.log(typeof url.message)
 
-      let systemUrlMessage;
-      if(url.message.includes("Invalid URL")){
-          systemUrlMessage = "Use uma URL válida."
-      }
-      setUrl(systemUrlMessage);
-      return;
-  }
+     // let systemUrlMessage;
+    //  if(url.message.includes("Invalid URL")){
+     //     systemUrlMessage = "Use uma URL válida."
+     // }
+     // setUrl(systemUrlMessage);
+      //return;
+  //}
 
-  
     if (
       name.trim() === '' ||
       contact.trim() === ''||
@@ -111,12 +68,11 @@ const AdoptionForm = () => {
       race,
       porte,
       city,
-      image,
       contact,
       uid: user.uid,
       createdBy: user.displayName
     })
-    navigateToAdopt();
+    navigateToImage();
     };
 
     return (
@@ -236,25 +192,9 @@ const AdoptionForm = () => {
         <br></br>
 
 
-        <div className={styles.formulariocontainer}>
-          <label><b>Imagem</b></label>
-          <input 
-                  type="text" 
-                  name="imageOfAnimal" 
-                  placeholder="Endereço de imagem!"
-                  onChange={(e) => setImage(e.target.value)}
-                  value={image}
-                  />
-          <div className={styles.info}>*Obrigatório</div>
-          </div>
 
-          <div className={styles.formulariocontainer}>
-            <input 
-              type="file" 
-              onChange={(e) => setImg(e.target.files[0])} />
-            <br></br>
-            {img &&<button onClick={handleClick} className={styles.meubotao}>Upload</button>}
-          </div>
+
+
 
           <br></br>
 
@@ -284,12 +224,7 @@ const AdoptionForm = () => {
 
         <div>
 
-        {imgUrl.map((url, index) => (
-                <div key={index}>
-                    <img src={url} alt={`Uploaded ${index}`} height="200px" width="200px" />
-                    <br />
-                </div>
-            ))}
+
 
 
             </div>
