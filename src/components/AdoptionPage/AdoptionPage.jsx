@@ -11,7 +11,6 @@ import useFetchImages from "../../hooks/useFetchImages";
 
 const AdoptionPage = () => {
   const { images } = useFetchImages();
-
    const {user} = useAuthValue();
 
     const navigate = useNavigate();
@@ -70,10 +69,11 @@ const AdoptionPage = () => {
 
 
 
-{Array.isArray(animals) && animals.map(animal => (
-            <PostDetail key={animal.id} animal={animal} />
+        {Array.isArray(animals) && animals.map(animal => (
+            <PostDetail key={animal.id} animal={animal} image={images.find(image => image.includes(animal.id))} />
           ))}
-  
+          
+
 
         </div>
             

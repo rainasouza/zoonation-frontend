@@ -5,6 +5,8 @@ import styles from '../Home/Home.module.css';
 import "bootstrap/dist/js/bootstrap.min.js";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import {useAuthValue} from "../../context/AuthContext";
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 const AdoptionForm = () => {
@@ -18,6 +20,7 @@ const AdoptionForm = () => {
     const [formError, setFormError] = useState("");
     const [url, setUrl] = useState("");
     const {user} = useAuthValue();
+    const animalId = uuidv4();
     const {insertDocument, response} = useInsertDocument("animals");
 
     const navigateToHome = () => {
@@ -30,7 +33,7 @@ const AdoptionForm = () => {
     }
 
     const navigateToImage = () => {
-      navigate('/img-form');
+      navigate(`/img-form/${animalId}`);
     }
     
     
@@ -69,6 +72,7 @@ const AdoptionForm = () => {
       porte,
       city,
       contact,
+      id: animalId,
       uid: user.uid,
       createdBy: user.displayName
     })
