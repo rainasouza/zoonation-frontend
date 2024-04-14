@@ -22,13 +22,13 @@ const PostDetail = ({ animal, image}) => {
           type="button"
           className={styles.meubotao}
           data-bs-toggle="modal"
-          data-bs-target={`#${animal.id}`}>
+          data-bs-target={`#animalModal-${animal.id}`}>
           Informações         
         </button>
         <br></br>
         <br></br>
         <div className={styles.modal}>
-          <div class="modal fade" id={animal.id} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id={`animalModal-${animal.id}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
