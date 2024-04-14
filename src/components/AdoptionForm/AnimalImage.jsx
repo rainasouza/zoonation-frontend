@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import styles from '../Home/Home.module.css';
 import "bootstrap/dist/js/bootstrap.min.js";
 import { imageDb } from "../../firebase/config";
-import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, listAll, ref, uploadBytes, getBlob } from "firebase/storage";
 import { v4 as uuidv4 } from 'uuid';
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import useFetchImages from "../../hooks/useFetchImages";
@@ -14,6 +14,8 @@ uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
 
 const AnimalImage = () => {
+
+    const { animalId } = useParams();
 
     const navigate = useNavigate();
     const navigateToAdopt = () => {
@@ -37,7 +39,7 @@ const AnimalImage = () => {
 
     const handleClick = () => {
       if (img !== null) {
-          const imgRef = ref(imageDb, `files/${uuidv4()}`);
+          const imgRef = ref(imageDb, `files/${animalId}`);
           uploadBytes(imgRef, img).then(snapshot => {
               getDownloadURL(snapshot.ref).then(url => {
                   setImgUrl(prevUrls => [...prevUrls, url]);  

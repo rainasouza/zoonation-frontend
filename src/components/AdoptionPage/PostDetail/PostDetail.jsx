@@ -1,10 +1,7 @@
 import React from "react";
 import styles from '../../Home/Home.module.css'
-import AnimalImage from "../../AdoptionForm/AnimalImage";
-import useFetchImages from "../../../hooks/useFetchImages";
 
-const PostDetail = ({ animal}) => {
-  const { images} = useFetchImages();
+const PostDetail = ({ animal, image}) => {
 
   return (
     <div className={styles.body}>
@@ -12,9 +9,8 @@ const PostDetail = ({ animal}) => {
         <br></br>
     
         <div>
-            {Array.isArray(images) && images.map((imageUrl, index) => (
-                <img key={index} src={imageUrl} alt={`Image ${index}`} />
-            ))}
+        <img key={animal.id} src={image} alt={`Image ${animal.id}`}  width= "100px" />
+
 
         <br></br>
 
