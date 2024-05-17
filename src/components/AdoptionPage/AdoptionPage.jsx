@@ -68,10 +68,13 @@ const AdoptionPage = () => {
         <br></br>
 
 
+        {Array.isArray(animals) && animals
+        .filter(animal => images.some(image => image.includes(animal.id)))
+        .map(animal => (
+          <PostDetail key={animal.id} animal={animal} image={images.find(image => image.includes(animal.id))} />
+        ))
+        }
 
-        {Array.isArray(animals) && animals.map(animal => (
-            <PostDetail key={animal.id} animal={animal} image={images.find(image => image.includes(animal.id))} />
-          ))}
           
 
 

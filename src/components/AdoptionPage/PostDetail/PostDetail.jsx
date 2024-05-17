@@ -2,6 +2,7 @@ import React from "react";
 import styles from '../../Home/Home.module.css'
 
 const PostDetail = ({ animal, image}) => {
+  
 
   return (
     <div className={styles.body}>
